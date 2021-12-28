@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="UTF-8">
@@ -10,105 +11,116 @@
 
     <link rel="stylesheet" href="css/style.css">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
+
 <body onload="calculateGoalPower(), blockAmount()">
     <header>
-        
+
     </header>
 
-    <section class = "container">
+    <section class="container">
         <h1 class="titulo">Tu calculadora Rollercoin personal</h1>
 
-        <article class="col-md-6">
-            <div>
-                <div class="form-group row my-4">
-                    <label class="mb-2">Ingrese la potencia de la red para la moneda deseada</label>
-                    <div class="col-md-9">
-                        <input type="number" class="form-control" step="any" id="network-power" oninput="calculateGoalPower()">
+        <div class="row">
+            <article class="col-md-6">
+                <div>
+                    <div class="form-group row my-4">
+                        <label class="mb-2">Ingrese la potencia de la red para la moneda deseada</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control" step="any" id="network-power"
+                                oninput="calculateGoalPower()">
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-select" name="network-power-prefix" id="network-power-selector"
+                                onchange="calculateGoalPower()">
+                                <option value="ghs">GH/s</option>
+                                <option value="ths">TH/s</option>
+                                <option value="phs">PH/s</option>
+                                <option selected value="ehs">EH/s</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <select class="form-select" name="network-power-prefix" id="network-power-selector" onchange="calculateGoalPower()">
-                            <option value="ghs">GH/s</option>
-                            <option value="ths">TH/s</option>
-                            <option value="phs">PH/s</option>
-                            <option selected value="ehs">EH/s</option>
-                        </select>
+
+                    <div class="form-group row my-4">
+                        <label class="mb-2">Ingrese el poder de su objetivo deseado</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control" name="goal-power-hash" id="goal-power"
+                                oninput="calculateGoalPower()">
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-select" name="goal-power-prefix" id="goal-power-selector"
+                                onchange="calculateGoalPower()">
+                                <option value="ghs">GH/s</option>
+                                <option selected value="ths">TH/s</option>
+                                <option value="phs">PH/s</option>
+                                <option value="ehs">EH/s</option>
+                            </select>
+                        </div>
                     </div>
+
+                    <div class="form-group row my-4">
+                        <label class="mb-2">Ingrese la recompensa en bloque para la moneda deseada</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control" name="block-reward" id="block-reward" step="any"
+                                oninput="calculateGoalPower()">
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-select name=" block-type" id="block-type"
+                                onchange="blockAmount(), calculateGoalPower()"">
+                                <option value=" BTC">Bitcoin (BTC)</option>
+                                <option value="DOGE">Doge (DOGE)</option>
+                                <option value="ETH">Ethereum (ETH)</option>
+                                <option value="BNB">Binance Coin (BNB)</option>
+                                <option value="MATIC">Polygon (MATIC)</option>
+                                <option value="RLT">RollerToken (RLT)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="bubbly-button mt-2" id="calcbtn" onclick="calculateGoalPower()">Calcular</button>
                 </div>
-                
-                <div class="form-group row my-4">
-                    <label class="mb-2">Ingrese el poder de su objetivo deseado</label>
-                    <div class="col-md-9">
-                        <input type="number" class="form-control" name="goal-power-hash" id="goal-power"
-                        oninput="calculateGoalPower()">
-                    </div>
-                    <div class="col-md-3">
-                        <select class="form-select" name="goal-power-prefix" id="goal-power-selector" onchange="calculateGoalPower()">
-                            <option value="ghs">GH/s</option>
-                            <option selected value="ths">TH/s</option>
-                            <option value="phs">PH/s</option>
-                            <option value="ehs">EH/s</option>
-                        </select>
-                    </div>
+                <div class="my-5">
+                    <p>Recompensa esperada: <span id="exp_reward"></span></p>
+                    <p>Recompensa diaria: <span id="daily"></span></p>
+                    <p>Recompensa semanal: <span id="weekly"></span></p>
+                    <p>Recompensa mensual: <span id="monthly"></span></p>
                 </div>
+            </article>
 
-                <div class="form-group row my-4">
-                    <label class="mb-2">Ingrese la recompensa en bloque para la moneda deseada</label>
-                    <div class="col-md-9">
-                        <input type="number" class="form-control" name="block-reward" id="block-reward" step="any"
-                        oninput="calculateGoalPower()">
-                    </div>
-                    <div class="col-md-3">
-                        <select class="form-select name="block-type" id="block-type" onchange="blockAmount(), calculateGoalPower()"">
-                            <option value="BTC">Bitcoin (BTC)</option>
-                            <option value="DOGE">Doge (DOGE)</option>
-                            <option value="ETH">Ethereum (ETH)</option>
-                            <option value="BNB">Binance Coin (BNB)</option>
-                            <option value="MATIC">Polygon (MATIC)</option>
-                            <option value="RLT">RollerToken (RLT)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <button class="bubbly-button mt-2" id="calcbtn" onclick="calculateGoalPower()">Calcular</button>
-            </div>
-            <div class="my-5">
-                <p>Recompensa esperada: <span id="exp_reward"></span></p>
-                <p>Recompensa diaria: <span id="daily"></span></p>
-                <p>Recompensa semanal: <span id="weekly"></span></p>
-                <p>Recompensa mensual: <span id="monthly"></span></p>
-            </div>
-        </article>
-
-        <aside class="col-md-6">
-
-        </aside>
+            <aside class="col-md-6">
+                <div id="coins"></div>
+            </aside>
+        </div>
     </section>
 
     <footer>
-        
+
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
     <script src="./js/calculator.js"></script>
     <script>
-    var animateButton = function (e) {
-        e.preventDefault;
-        //reset animation
-        e.target.classList.remove("animate");
-
-        e.target.classList.add("animate");
-        setTimeout(function () {
+        var animateButton = function (e) {
+            e.preventDefault;
+            //reset animation
             e.target.classList.remove("animate");
-        }, 700);
-    };
 
-    var bubblyButtons = document.getElementsByClassName("bubbly-button");
+            e.target.classList.add("animate");
+            setTimeout(function () {
+                e.target.classList.remove("animate");
+            }, 700);
+        };
+
+        var bubblyButtons = document.getElementsByClassName("bubbly-button");
 
         for (var i = 0; i < bubblyButtons.length; i++) {
             bubblyButtons[i].addEventListener("click", animateButton, false);
         }   
     </script>
 </body>
+
 </html>
