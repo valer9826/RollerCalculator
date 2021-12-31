@@ -89,7 +89,7 @@
             <aside class="col-md-6">
                 <table class="table table-dark mx-5 my-3">
                     <thead>
-                        <tr>
+                        <tr class="text-center">
                             <th class="rank">Rank</th>
                             <th class="name">Nombre</th>
                             <th class="symbol">Simbolo</th>
@@ -186,12 +186,12 @@
             }
             for(var i = 0; i<crytocurrencies.length; i++){
                 var $item = $(
-                    "<tr class='crytocurrency'>" + 
+                    "<tr class='text-center'>" + 
                         "<td>" + (i+1) + "</td>" +
                         "<td class='name'>" + crytocurrencies[i].name + "</td>" +
                         "<td class='symbol'>" + crytocurrencies[i].symbol + "</td>" +  
                         "<td>" + crytocurrencies[i].price + "</td>" +
-                        "<td class='image'>"+ crytocurrencies[i].image + "</td>" +
+                        "<td class='image'>"+"<img class='img__crypto' src='"+ crytocurrencies[i].image+"'/>" + "</td>" +
                     "</tr>"
                 );
                 crytocurrencies[i].$item = $item;

@@ -118,6 +118,12 @@
         background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
     }
 }
+/*Imagen crypto*/
+.img__crypto{
+    width: 12%;
+}
+
+
 /*Recompensa*/
 
 .recompensa p{
