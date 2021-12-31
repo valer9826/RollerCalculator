@@ -6,13 +6,11 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-body {
+.body {
+    background: #f7f9fb;
     font-size: 16px;
-    text-align: center;
-    background-color: #f7f9fb;
     font-family: 'Roboto Mono', monospace;
     min-height: calc(100vh - 0px - 940px);
 }
@@ -40,19 +38,19 @@ body {
     -webkit-appearance: none;
     text-transform: uppercase;
     appearance: none;
-    background-color: #7321d8;
+    background-color: #5044da;
     color: #fff;
-    border-radius: 0.25rem;
+    border-radius: 0.15rem;
     border: none;
     position: relative;
     transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-    box-shadow: 0 2px 25px rgba(174, 37, 204, 0.5);
+    box-shadow: 0 2px 25px rgba(33, 27, 199, 0.5);
 }
 
 .bubbly-button:hover {
-    background-color: #6c1ecc;
+    background-color: #4539cc;
     color: #f9f9f9;
-    box-shadow: 0 3px 35px rgba(149, 29, 175, 0.5);
+    box-shadow: 0 3px 30px rgba(33, 27, 199, 0.5);
 }
 
 
@@ -73,19 +71,19 @@ body {
 .bubbly-button:before {
     display: none;
     top: -75%;
-    background-image: radial-gradient(circle, #783be2 20%, transparent 20%), radial-gradient(circle, transparent 20%, #783be2 20%, transparent 30%), radial-gradient(circle, #783be2 20%, transparent 20%), radial-gradient(circle, #783be2 20%, transparent 20%), radial-gradient(circle, transparent 10%, #783be2 15%, transparent 20%), radial-gradient(circle, #783be2 20%, transparent 20%), radial-gradient(circle, #783be2 20%, transparent 20%), radial-gradient(circle, #783be2 20%, transparent 20%), radial-gradient(circle, #783be2 20%, transparent 20%);
+    background-image: radial-gradient(circle, #4e42d4 20%, transparent 20%), radial-gradient(circle, transparent 20%, #4e42d4 20%, transparent 30%), radial-gradient(circle, #4e42d4 20%, transparent 20%), radial-gradient(circle, #4e42d4 20%, transparent 20%), radial-gradient(circle, transparent 10%, #4e42d4 15%, transparent 20%), radial-gradient(circle, #4e42d4 20%, transparent 20%), radial-gradient(circle, #4e42d4 20%, transparent 20%), radial-gradient(circle, #4e42d4 20%, transparent 20%), radial-gradient(circle, #4e42d4 20%, transparent 20%);
     background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
 }
 .bubbly-button:after {
     display: none;
     bottom: -75%;
-    background-image: radial-gradient(circle, #783be2 20%, transparent 20%), radial-gradient(circle, #783be2 20%, transparent 20%), radial-gradient(circle, transparent 10%, #783be2 15%, transparent 20%), radial-gradient(circle, #783be2 20%, transparent 20%), radial-gradient(circle, #783be2 20%, transparent 20%), radial-gradient(circle, #783be2 20%, transparent 20%), radial-gradient(circle, #783be2 20%, transparent 20%);
+    background-image: radial-gradient(circle, #4e42d4 20%, transparent 20%), radial-gradient(circle, #4e42d4 20%, transparent 20%), radial-gradient(circle, transparent 10%, #4e42d4 15%, transparent 20%), radial-gradient(circle, #4e42d4 20%, transparent 20%), radial-gradient(circle, #4e42d4 20%, transparent 20%), radial-gradient(circle, #4e42d4 20%, transparent 20%), radial-gradient(circle, #4e42d4 20%, transparent 20%);
     background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
 }
 .bubbly-button:active {
     transform: scale(0.9);
-    background-color: #8f27df;
-    box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+    background-color: #4035b3;
+    box-shadow: 0 2px 35px rgba(33, 27, 199, 0.5);
 }
 .bubbly-button.animate:before {
     display: block;
@@ -120,11 +118,17 @@ body {
         background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
     }
 }
+/*Recompensa*/
+
+.recompensa p{
+    margin-bottom: 0;
+    margin:0.7rem;
+}
 
 /* footer */
 
 footer{
-    background:#f3eae8;
+    background:#f7f9fb;
     height: auto;
     width: 100%;
     color: #000;
@@ -179,26 +183,30 @@ footer{
     background-color: rgba(0, 0, 0, 0.829);
 }
 .social-menu ul li:nth-child(2) a:hover{
+    background-color: #655ee7;
+}
+.social-menu ul li:nth-child(3) a:hover{
     background: #f09433; 
     background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
     background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
     background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
 }
-.social-menu ul li:nth-child(3) a:hover{
+.social-menu ul li:nth-child(4) a:hover{
     background-color: #0077b5;
 }
-.social-menu ul li:nth-child(4) a:hover{
+.social-menu ul li:nth-child(5) a:hover{
     background-color: #c7022f;
 }
 
 /* copy */
 
 .footer-bottom{
-    background: #232617;
+    border-top: 1px solid #555;
+    background: #f7f9fb;
     width: 100%;
     padding: 5px 20px;
     /* color: #122f4a; */
-    color: #f8efed;
+    color: #161d2c;
 }
 
 .footer-bottom span{
