@@ -27,6 +27,31 @@ fetch(`${API_URL}`)
 //     HTMLresponse.innerHTML = `<ul>${tmp}</ul>`;
 //   });
 
+const btnMostrar = document.querySelector(".btn-mostrar");
+
+function Mostrar() {
+  let elem = document.querySelector(".table");
+  let btn = document.querySelector(".btn-mostrar");
+  let prom = document.querySelector(".prom");
+  let textBtnMostrar = document.querySelector(".text-btn-mostrar");
+
+  if (elem.classList.contains("hidden")) {
+    elem.classList.remove("hidden");
+    prom.classList.add("hidden");
+    btn.innerHTML = "Hide";
+    textBtnMostrar.innerHTML = "Click on the button to hide!";
+  } else {
+    elem.classList.add("hidden");
+    prom.classList.remove("hidden");
+    textBtnMostrar.innerHTML = "Click on the button to see coin prices!";
+    btn.innerHTML = "Show prices";
+  }
+}
+
+btnMostrar.addEventListener("click", () => {
+  Mostrar();
+});
+
 function blockAmount() {
   // Returns pre-set block rewards based on block selected
   // Update if updated on rollercoin
