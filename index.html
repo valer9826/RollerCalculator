@@ -23,13 +23,13 @@
     </header>
 
     <section class="container">
-        <h1 class="titulo">Tu Calculadora Rollercoin Personal</h1>
+        <h1 class="titulo">Your Personal Rollercoin Calculator</h1>
 
         <div class="row">
             <article class="col-md-6">
                 <div>
                     <div class="form-group row my-4">
-                        <label class="mb-2">Ingrese la potencia de la red para la moneda deseada</label>
+                        <label class="mb-2">Enter Network Power For Desired Coin</label>
                         <div class="col-8">
                             <input type="number" class="form-control" step="any" id="network-power">
                         </div>
@@ -44,7 +44,7 @@
                     </div>
 
                     <div class="form-group row my-4">
-                        <label class="mb-2">Ingrese el poder de su objetivo deseado</label>
+                        <label class="mb-2">Enter Your Desired Goal Power</label>
                         <div class="col-8">
                             <input type="number" class="form-control" name="goal-power-hash" id="goal-power">
                         </div>
@@ -59,7 +59,7 @@
                     </div>
 
                     <div class="form-group row my-4">
-                        <label class="mb-2">Ingrese la recompensa en bloque para la moneda deseada</label>
+                        <label class="mb-2">Enter Block Reward For Desired Coin</label>
                         <div class="col-8">
                             <input type="number" class="form-control" name="block-reward" id="block-reward" step="any">
                         </div>
@@ -78,15 +78,34 @@
                     <button class="bubbly-button mt-2" onclick="calculateGoalPower()">Calcular</button>
                 </div>
                 <div class="my-5 p-3 card shadow recompensa">
-                    <p>Recompensa esperada: <span id="exp_reward"></span></p>
-                    <p>Recompensa diaria: <span id="daily"></span></p>
-                    <p>Recompensa semanal: <span id="weekly"></span></p>
-                    <p>Recompensa mensual: <span id="monthly"></span></p>
+                    <p>Expected Reward: <span id="exp_reward"></span></p>
+                    <p>Daily Reward: <span id="daily"></span></p>
+                    <p>Weekly Reward: <span id="weekly"></span></p>
+                    <p>Monthly Reward: <span id="monthly"></span></p>
                 </div>
             </article>
 
             <aside class="col-md-6">
-                <table class="table table-dark mx-5 my-4 shadow">
+
+
+
+                <!--Start rollercoin.com code-->
+                <a href="https://rollercoin.com/?r=kulwx0ob">
+                    <img src="/img/roller.gif" class="prom " alt="320h100" style="display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 50%;" />
+                </a>
+                <!--End rollercoin.com code-->
+
+
+                <p class="text-center" style="margin-top: 1rem;"><span class="text-btn-mostrar">Click on the button to
+                        see coin prices!</span>
+                    <button class="bubbly-button mt-2 btn-mostrar text-center" style="margin-top:2.5rem;">Show
+                        prices</button>
+                </p>
+
+                <table class="table table-dark mx-5 my-4 shadow hidden">
                     <thead>
                         <tr class="text-center">
                             <th class="rank">#</th>
@@ -121,6 +140,8 @@
             </div>
 
             <div class="footer-bottom">
+                <p>RollYourNumbers isn't endorsed by Rollercoin and does not reflect the views or opinions of anyone
+                    officially involved in producing and managing Rollercoin and their service(s).</p>
                 <span>copyright &copy; 2021 <b> RollerCoin </b></span>
             </div>
         </div>
@@ -136,6 +157,8 @@
     <script src="./js/calculator.js"></script>
     <!--social media -->
     <script src="https://kit.fontawesome.com/66aa7c98b3.js" type="text/javascript" crossorigin="anonymous"></script>
+
+
 
     <!-- Animación del botón -->
     <script>
