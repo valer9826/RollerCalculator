@@ -17,7 +17,7 @@ fetch(`${API_URL}`)
     });
 
     HTMLresponse.appendChild(ul);
-});
+  });
 
 /* ----- Metodo alternativo para manipular DOM/ Hacer una petición a la API de  y mostrar los resultados en una lista ----- */
 // fetch(`${API_URL}`)

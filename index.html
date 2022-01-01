@@ -17,7 +17,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
-<body class="body"onload="calculateGoalPower(), blockAmount()">
+<body class="body" onload="calculateGoalPower(), blockAmount()">
     <header>
 
     </header>
@@ -64,8 +64,7 @@
                             <input type="number" class="form-control" name="block-reward" id="block-reward" step="any">
                         </div>
                         <div class="col-4">
-                            <select class="form-select" name="block-type" id="block-type"
-                                onchange="blockAmount()">
+                            <select class="form-select" name="block-type" id="block-type" onchange="blockAmount()">
                                 <option value=" BTC">Bitcoin (BTC)</option>
                                 <option value="DOGE">Doge (DOGE)</option>
                                 <option value="ETH">Ethereum (ETH)</option>
@@ -105,7 +104,7 @@
             </aside>
         </div>
     </section>
-    
+
     <footer>
         <div class="footer-content">
 
@@ -119,9 +118,9 @@
                 </ul>
             </div>
 
-             <div class="footer-bottom">
+            <div class="footer-bottom">
                 <span>copyright &copy; 2021 <b> RolerCoin </b></span>
-             </div>
+            </div>
         </div>
     </footer>
 
@@ -135,7 +134,7 @@
     <script src="./js/calculator.js"></script>
     <!--social media -->
     <script src="https://kit.fontawesome.com/66aa7c98b3.js" type="text/javascript" crossorigin="anonymous"></script>
-    
+
     <!-- Animación del botón -->
     <script>
         var animateButton = function (e) {
@@ -165,18 +164,18 @@
         var data = JSON.parse(xhReq.responseText);
 
         console.log(data);
-        
+
         //Inicializar
         var crytocurrencies;
         var timerId;
         var updateInterval;
 
-        function resetBoard(){
+        function resetBoard() {
             var $list = $("#crytocurrencies")
             $list.find(".crytocurrency").remove();
             crytocurrencies = [];
 
-            for(let i = 0; i < 5; i++){
+            for (let i = 0; i < 5; i++) {
                 crytocurrencies.push({
                     name: data[i].name,
                     symbol: data[i].symbol,
@@ -184,14 +183,14 @@
                     image: data[i].image,
                 })
             }
-            for(var i = 0; i<crytocurrencies.length; i++){
+            for (var i = 0; i < crytocurrencies.length; i++) {
                 var $item = $(
-                    "<tr class='text-center'>" + 
-                        "<td>" + (i+1) + "</td>" +
-                        "<td class='name'>" + crytocurrencies[i].name + "</td>" +
-                        "<td class='symbol'>" + crytocurrencies[i].symbol + "</td>" +  
-                        "<td>" + crytocurrencies[i].price + "</td>" +
-                        "<td class='image'>"+"<img class='img__crypto' src='"+ crytocurrencies[i].image+"'/>" + "</td>" +
+                    "<tr class='text-center'>" +
+                    "<td>" + (i + 1) + "</td>" +
+                    "<td class='name'>" + crytocurrencies[i].name + "</td>" +
+                    "<td class='symbol'>" + crytocurrencies[i].symbol + "</td>" +
+                    "<td>$" + crytocurrencies[i].price + "</td>" +
+                    "<td class='image'>" + "<img class='img__crypto' src='" + crytocurrencies[i].image + "'/>" + "</td>" +
                     "</tr>"
                 );
                 crytocurrencies[i].$item = $item;
