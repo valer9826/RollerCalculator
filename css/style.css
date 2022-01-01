@@ -118,9 +118,28 @@
         background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
     }
 }
+
+/*Table*/
+.table{
+    font-size: 0.85em;
+}
+
+tr .name{
+    width: 30%;
+}
+
+.symbol{
+    text-transform: uppercase;
+    font-size: 0.80em;
+    color: rgb(118, 107, 107);
+    margin-left: 1em;
+}
+
+
 /*Imagen crypto*/
 .img__crypto{
-    width: 12%;
+    width: 15%;
+    padding-right: 10px;
 }
 
 
