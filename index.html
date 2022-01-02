@@ -23,7 +23,7 @@
     </header>
 
     <section class="container">
-        <h1 class="titulo">Your Personal Rollercoin Calculator</h1>
+        <h1 class="titulo">RollerChange</h1>
 
         <div class="row">
             <article class="col-md-6">
@@ -78,7 +78,7 @@
                     <button class="bubbly-button mt-2" onclick="calculateGoalPower()">Calcular</button>
                 </div>
                 <div class="my-5 p-3 card shadow recompensa">
-                    <p>Expected Reward: <span id="exp_reward"></span></p>
+                    <p>Block Reward: <span id="exp_reward"></span></p>
                     <p>Daily Reward: <span id="daily"></span></p>
                     <p>Weekly Reward: <span id="weekly"></span></p>
                     <p>Monthly Reward: <span id="monthly"></span></p>
@@ -91,9 +91,10 @@
 
                 <!--Start rollercoin.com code-->
                 <a href="https://rollercoin.com/?r=kulwx0ob">
-                    <img src="/img/roller.gif" class="prom " alt="320h100" style="display: block;
+                    <img src="/img/roller1.gif" class="prom " alt="320h100" style="display: block;
                     margin-left: auto;
                     margin-right: auto;
+                    margin-top: 1.2rem;
                     width: 50%;" />
                 </a>
                 <!--End rollercoin.com code-->
@@ -183,6 +184,11 @@
 
     <!-- coingecko -->
     <script>
+
+
+
+
+
         var xhReq = new XMLHttpRequest();
         xhReq.open("GET", "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum%2C%20dogecoin%2C%20matic-network%2C%20binancecoin&order=market_cap_desc&per_page=100&page=1&sparkline=false", false)
         xhReq.send(null);
@@ -229,6 +235,8 @@
             }
         }
         resetBoard();
+
+
     </script>
     <!-- fin coingecko -->
 </body>
