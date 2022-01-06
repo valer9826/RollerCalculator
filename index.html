@@ -23,7 +23,7 @@
     </header>
 
     <section class="container">
-        <h1 class="titulo">Your Personal Rollercoin Calculator</h1>
+        <h1 class="titulo">RollerChange</h1>
 
         <div class="row">
             <article class="col-md-6">
@@ -78,13 +78,14 @@
                     <button class="btn-show mt-2" onclick="calculateGoalPower()">Calculate</button>
                 </div>
                 <div class="my-5 p-3 card shadow recompensa">
-                    <p>Expected Reward: <span id="exp_reward"></span></p>
+                    <p>Block Reward: <span id="exp_reward"></span></p>
                     <p>Daily Reward: <span id="daily"></span></p>
                     <p>Weekly Reward: <span id="weekly"></span></p>
                     <p>Monthly Reward: <span id="monthly"></span></p>
                     <!-- <p>Btc: <span id="btc-resultado"></span></p> -->
                 </div>
             </article>
+
 
             <aside class="col-md-6" >
                 <div class="container">
@@ -263,11 +264,12 @@
 
     <!-- coingecko -->
     <script>
+
         var xhReq = new XMLHttpRequest();
         xhReq.open("GET", "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum%2C%20dogecoin%2C%20matic-network%2C%20binancecoin&order=market_cap_desc&per_page=100&page=1&sparkline=false", false)
         xhReq.send(null);
         var data = JSON.parse(xhReq.responseText);
-
+        clickCounter = 0;
         console.log(data);
 
         //Inicializar
@@ -308,7 +310,16 @@
                 $list.append($item);
             }
         }
-        resetBoard();
+
+        btnMostrar.addEventListener("click", function () {
+
+            if (clickCounter == 0) {
+                resetBoard();
+                clickCounter++;
+            }
+        });
+
+
     </script>
     <!-- fin coingecko -->
 </body>
