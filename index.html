@@ -185,15 +185,11 @@
     <!-- coingecko -->
     <script>
 
-
-
-
-
         var xhReq = new XMLHttpRequest();
         xhReq.open("GET", "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum%2C%20dogecoin%2C%20matic-network%2C%20binancecoin&order=market_cap_desc&per_page=100&page=1&sparkline=false", false)
         xhReq.send(null);
         var data = JSON.parse(xhReq.responseText);
-
+        clickCounter = 0;
         console.log(data);
 
         //Inicializar
@@ -234,7 +230,14 @@
                 $list.append($item);
             }
         }
-        resetBoard();
+
+        btnMostrar.addEventListener("click", function () {
+
+            if (clickCounter == 0) {
+                resetBoard();
+                clickCounter++;
+            }
+        });
 
 
     </script>
