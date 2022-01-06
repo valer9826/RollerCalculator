@@ -75,34 +75,33 @@
                         </div>
                     </div>
 
-                    <button class="bubbly-button mt-2" onclick="calculateGoalPower()">Calcular</button>
+                    <button class="btn-show mt-2" onclick="calculateGoalPower()">Calculate</button>
                 </div>
                 <div class="my-5 p-3 card shadow recompensa">
                     <p>Expected Reward: <span id="exp_reward"></span></p>
                     <p>Daily Reward: <span id="daily"></span></p>
                     <p>Weekly Reward: <span id="weekly"></span></p>
                     <p>Monthly Reward: <span id="monthly"></span></p>
+                    <!-- <p>Btc: <span id="btc-resultado"></span></p> -->
                 </div>
             </article>
 
-            <aside class="col-md-6">
-
-
-
-                <!--Start rollercoin.com code-->
-                <a href="https://rollercoin.com/?r=kulwx0ob">
-                    <img src="/img/roller.gif" class="prom " alt="320h100" style="display: block;
-                    margin-left: auto;
-                    margin-right: auto;
-                    width: 50%;" />
-                </a>
-                <!--End rollercoin.com code-->
-
+            <aside class="col-md-6" >
+                <div class="container">
+                    <div class="prom">
+                        <!--Start rollercoin.com code-->
+                        <a href="https://rollercoin.com/?r=kulwx0ob">
+                            <img src="./img/roller.gif" alt="320h100"/>
+                        </a>
+                        <!--End rollercoin.com code-->
+                    </div>
+                </div>
 
                 <p class="text-center" style="margin-top: 1rem;"><span class="text-btn-mostrar">Click on the button to
                         see coin prices!</span>
-                    <button class="bubbly-button mt-2 btn-mostrar text-center" style="margin-top:2.5rem;">Show
-                        prices</button>
+                    <button class="btn-show btn-mostrar">
+                        Show prices
+                    </button>
                 </p>
 
                 <table class="table table-dark mx-5 my-4 shadow hidden">
@@ -123,6 +122,84 @@
                 <!-- <div id="coins"></div> -->
             </aside>
         </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-6">
+                <div class="card my-1 shadow">
+                    <h6 class="card-header head">CONVERT SATOSHI TO BITCOIN</h6>
+                    <div class="card-body my-3">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6">
+                                <div class="input-group">   
+                                    <input type="number" class="form-control" id="satoshi-value" oninput="calculateBTC()">
+                                    <div class="input-group-text">Satoshi</div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-1">
+                                <div class="text-center">
+                                    <i class="fas fa-arrow-right arrow-icon"></i>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="input-group recompensa">
+                                    
+                                    <input type="number" class="form-control" disabled id="btc-resultado">
+                                    <div class="input-group-text font-weight-bold">BTC</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card my-4 shadow">
+                    <h6 class="card-header head">CONVERT CRYPTOCURRENCY TO DOLLAR OR EURO</h6>
+                    <div class="card-body my-3">
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 col-md-2">
+                                <select class="form-select fs-6" name="crypto-type" id="crypto-type" onchange="calculated$()">
+                                    <option value="btc">BTC (Bitcoin)</option>
+                                    <option value="eth">ETH (Ethereum)</option>
+                                    <option value="bnb">BNB (Binance Coin)</option>
+                                    <option value="doge">DOGE (Dogecoin)</option>
+                                    <option value="matic">MATIC (Polygon)</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-8 col-sm-8 col-md-4">
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="btc-value" oninput="calculated$()">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-1">
+                                <div class="text-center">
+                                    <i class="fas fa-arrow-right arrow-icon"></i>
+                                </div>
+                            </div>
+                            <div class="col-xs-10 col-sm-8 col-md-3">
+                                <div class="form-group recompensa">
+                                    <input type="number" class="form-control" disabled id="coin-resultado">
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-4 col-md-2">
+                                <select class="form-select fs-6" name="coin-type" id="coin-type" onchange="calculated$()">
+                                    <option value="dolar">USD (Dollar)</option>
+                                    <option value="euro">EUR (Euro)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-0">
+                
+            </div>
+        </div>
+        <div class="row my-4">
+            <div class="col-md-6">
+                
+            </div>
+            <div class="col-md-6">
+                
+            </div>
+        </div>
     </section>
 
     <footer>
@@ -139,9 +216,12 @@
                 </ul>
             </div>
 
-            <div class="footer-bottom">
+            <div class="container">
                 <p>RollYourNumbers isn't endorsed by Rollercoin and does not reflect the views or opinions of anyone
                     officially involved in producing and managing Rollercoin and their service(s).</p>
+            </div>
+
+            <div class="footer-bottom">
                 <span>copyright &copy; 2021 <b> RollerCoin </b></span>
             </div>
         </div>
@@ -173,7 +253,7 @@
             }, 700);
         };
 
-        var bubblyButtons = document.getElementsByClassName("bubbly-button");
+        var bubblyButtons = document.getElementsByClassName("btn-show");
 
         for (var i = 0; i < bubblyButtons.length; i++) {
             bubblyButtons[i].addEventListener("click", animateButton, false);

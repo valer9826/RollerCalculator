@@ -1,7 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Shizuru&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Shizuru&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500&display=swap');
 
 * {
   margin: 0;
@@ -9,16 +12,18 @@
 }
 
 .body {
-  background: #d2c7e767;
+  background: #f7f9fb;
   font-size: 16px;
-  font-family: "Roboto Mono", monospace;
+  font-family: 'Baloo Bhaijaan 2', cursive;
+  letter-spacing: 0.1em;
   min-height: calc(100vh - 0px - 940px);
 }
 
 .titulo {
   /* font-family: 'Shizuru', cursive; */
-  font-family: "Fredoka One", cursive;
-  font-size: 4em;
+  /* font-family: "Fredoka One", cursive; */
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3em;
   color: #4e42d4;
   letter-spacing: 0.07em;
   line-height: 1.44em;
@@ -26,9 +31,27 @@
   margin-bottom: 5%;
   text-align: center;
 }
+
+/* Input type number */
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button{
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+/* Form control , form select */
+
+.form-select:focus,
+.form-control:focus{
+  border: 0.118em solid;
+  border-color: #4e42d4 !important;
+  /* box-shadow: 0 0 0 0.2rem rgb(243, 156, 255) !important; */
+  box-shadow: 0 0 0 0.01rem #4e42d4 !important;
+}
 /* button */
-.bubbly-button {
-  /* font-family: "Helvetica", "Arial", sans-serif; */
+/* .bubbly-button {
+  font-family: "Helvetica", "Arial", sans-serif; 
   font-family: "Nunito", sans-serif;
   display: inline-block;
   font-size: 0.85em;
@@ -38,16 +61,16 @@
   -webkit-appearance: none;
   text-transform: uppercase;
   appearance: none;
-  background-color: #5044da;
+  background-color: #3c33a2;
   color: #fff;
   border-radius: 0.15rem;
   border: none;
   position: relative;
   transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-  box-shadow: 0 2px 25px rgba(33, 27, 199, 0.5);
-}
+  box-shadow: 0 2px 20px rgba(33, 27, 199, 0.5);
+} */
 
-.bubbly-button:hover {
+/* .bubbly-button:hover {
   background-color: #4539cc;
   color: #f9f9f9;
   box-shadow: 0 3px 30px rgba(33, 27, 199, 0.5);
@@ -55,9 +78,80 @@
 
 .bubbly-button:focus {
   outline: 0;
+} */
+
+/*Table*/
+.table {
+  font-size: 0.85em;
 }
-.bubbly-button:before,
-.bubbly-button:after {
+
+tr .name {
+  width: 30%;
+}
+
+.symbol {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color: rgb(118, 107, 107);
+  margin-left: 1em;
+}
+
+/*Imagen crypto*/
+.img__crypto {
+  width: 15%;
+  padding-right: 10px;
+}
+
+/* Mostrar y ocultar */
+.hidden {
+  display: none;
+}
+
+/*boton mostrar*/
+/* Botones mostrar modal */
+.btn-show {
+	background-color: #4e42d4;
+	border-radius: 2px;
+	border-style: none;
+	box-shadow: 1px 0px #3c33a2,
+							0px 1px #3c33a2,
+							2px 1px #3c33a2,
+							1px 2px #3c33a2,
+							3px 2px #3c33a2,
+							2px 3px #3c33a2,
+							4px 3px #3c33a2,
+							3px 4px #3c33a2,
+							5px 4px #3c33a2,
+							4px 5px #3c33a2,
+							6px 5px #3c33a2,
+							5px 6px #3c33a2;
+	color: #ffffff;
+	cursor: pointer;
+	letter-spacing: 1.7px;
+  text-transform: uppercase;
+  font-size: 0.75em;
+	padding: 10px 20px;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-show:hover{
+    box-shadow: 1px 0px #3c33a2,
+	 						0px 1px #3c33a2,
+	 						2px 1px #3c33a2,
+	 						1px 2px #3c33a2,
+	 						3px 2px #3c33a2,
+	 						2px 3px #3c33a2,
+	 						4px 3px #3c33a2,
+	 						3px 4px #3c33a2;
+    transform: translate(5px);
+}
+
+.btn-show:focus {
+	background-color: #4e42d4;
+}
+
+.btn-show:before,
+.btn-show:after {
   position: absolute;
   content: "";
   display: block;
@@ -68,7 +162,7 @@
   transition: all ease-in-out 0.5s;
   background-repeat: no-repeat;
 }
-.bubbly-button:before {
+.btn-show:before {
   display: none;
   top: -75%;
   background-image: radial-gradient(circle, #4e42d4 20%, transparent 20%),
@@ -83,7 +177,7 @@
   background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
     10% 10%, 18% 18%;
 }
-.bubbly-button:after {
+.btn-show:after {
   display: none;
   bottom: -75%;
   background-image: radial-gradient(circle, #4e42d4 20%, transparent 20%),
@@ -95,16 +189,16 @@
     radial-gradient(circle, #4e42d4 20%, transparent 20%);
   background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
 }
-.bubbly-button:active {
+.btn-show:active {
   transform: scale(0.9);
   background-color: #4035b3;
   box-shadow: 0 2px 35px rgba(33, 27, 199, 0.5);
 }
-.bubbly-button.animate:before {
+.btn-show.animate:before {
   display: block;
   animation: topBubbles ease-in-out 0.75s forwards;
 }
-.bubbly-button.animate:after {
+.btn-show.animate:after {
   display: block;
   animation: bottomBubbles ease-in-out 0.75s forwards;
 }
@@ -140,35 +234,13 @@
   }
 }
 
-/*Table*/
-.table {
-  font-size: 0.85em;
-}
-
-tr .name {
-  width: 30%;
-}
-
-.symbol {
-  text-transform: uppercase;
-  font-size: 0.8em;
-  color: rgb(118, 107, 107);
-  margin-left: 1em;
-}
-
-/*Imagen crypto*/
-.img__crypto {
-  width: 15%;
-  padding-right: 10px;
-}
-
-/* Mostrar y ocultar */
-.hidden {
-  display: none;
-}
-
 /* Imagen Promo */
-.prom {
+.prom{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 2em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -177,6 +249,19 @@ tr .name {
 .recompensa p {
   margin-bottom: 0;
   margin: 0.7rem;
+}
+
+.head {
+  background: #ffffff !important;
+  /* color: #04c8cb; */
+  color: #161d2c;
+}
+
+/*Convertir satochi a bitcoin*/
+.arrow-icon{
+  margin: 8px auto;
+  color: #04c8cb;
+  font-size: 25px;
 }
 
 /* footer */
@@ -223,7 +308,7 @@ footer {
   box-shadow: 0 5px 4px rgba(0, 0, 0, 0.5);
 
   font-size: 28px;
-  line-height: 50px;
+  line-height: 60px;
   transition: 0.3s;
   color: #000;
 }
