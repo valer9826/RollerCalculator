@@ -17,285 +17,284 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
-<-- class="body" onload="calculateGoalPower(), blockAmount()">
-    <header>
 
-    </header>
+<header>
 
-    <section class="container">
-        <h1 class="titulo">RollerChange</h1>
+</header>
 
-        <div class="row">
-            <article class="col-md-6">
-                <div>
+<section class="container">
+    <h1 class="titulo">RollerChange</h1>
 
-                    <!------------ INGRESA PODER DE RED ------------->
-                    <div class="form-group row my-4">
-                        <label class="mb-2">Enter Network Power For Desired Coin</label>
-                        <div class="col-8">
-                            <input type="number" class="form-control" step="any" id="network-power">
-                        </div>
-                        <div class="col-4">
-                            <select class="form-select" name="network-power-prefix" id="network-power-selector">
-                                <option value="ghs">GH/s</option>
-                                <option value="ths">TH/s</option>
-                                <option value="phs">PH/s</option>
-                                <option selected value="ehs">EH/s</option>
-                            </select>
-                        </div>
+    <div class="row">
+        <article class="col-md-6">
+            <div>
+
+                <!------------ INGRESA PODER DE RED ------------->
+                <div class="form-group row my-4">
+                    <label class="mb-2">Enter Network Power For Desired Coin</label>
+                    <div class="col-8">
+                        <input type="number" class="form-control" step="any" id="network-power">
                     </div>
-
-                    <!------------ INGRESA PODER ------------->
-                    <div class="form-group row my-4">
-                        <label class="mb-2">Enter Your Desired Goal Power</label>
-                        <div class="col-8">
-                            <input type="number" class="form-control" name="goal-power-hash" id="goal-power">
-                        </div>
-                        <div class="col-4">
-                            <select class="form-select" name="goal-power-prefix" id="goal-power-selector">
-                                <option value="ghs">GH/s</option>
-                                <option selected value="ths">TH/s</option>
-                                <option value="phs">PH/s</option>
-                                <option value="ehs">EH/s</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!------------ INGRESA RECOMPENSA POR BLOQUE ------------->
-                    <div class="form-group row my-4">
-                        <label class="mb-2">Enter Block Reward For Desired Coin</label>
-                        <div class="col-8">
-                            <input type="number" class="form-control" name="block-reward" id="block-reward" step="any">
-                        </div>
-                        <div class="col-4">
-                            <select class="form-select" name="block-type" id="block-type" onchange="blockAmount()">
-                                <option value=" BTC">Bitcoin (BTC)</option>
-                                <option value="DOGE">Doge (DOGE)</option>
-                                <option value="ETH">Ethereum (ETH)</option>
-                                <option value="BNB">Binance Coin (BNB)</option>
-                                <option value="MATIC">Polygon (MATIC)</option>
-                                <option value="RLT">RollerToken (RLT)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <button class="btn-show mt-2" onclick="calculateGoalPower()">Calculate</button>
-                </div>
-                <!------------ RESULTADOS DE CALCULADORA ------------->
-                <div class="my-5 p-3 card shadow recompensa">
-                    <p>Block Reward: <span id="exp_reward"></span></p>
-                    <p>Daily Reward: <span id="daily"></span></p>
-                    <p>Weekly Reward: <span id="weekly"></span></p>
-                    <p>Monthly Reward: <span id="monthly"></span></p>
-                    <!-- <p>Btc: <span id="btc-resultado"></span></p> -->
-                </div>
-            </article>
-
-            <!------------ PROMO ROLLERCOIN ------------->
-            <aside class="col-md-6">
-                <div class="container">
-                    <div class="prom">
-                        <!--Start rollercoin.com code-->
-                        <a href="https://rollercoin.com/?r=kulwx0ob">
-                            <img src="./img/roller.gif" alt="320h100" />
-                        </a>
-                        <!--End rollercoin.com code-->
+                    <div class="col-4">
+                        <select class="form-select" name="network-power-prefix" id="network-power-selector">
+                            <option value="ghs">GH/s</option>
+                            <option value="ths">TH/s</option>
+                            <option value="phs">PH/s</option>
+                            <option selected value="ehs">EH/s</option>
+                        </select>
                     </div>
                 </div>
 
-                <!------------ BOTONES DE CONSUMO API ------------->
-                <p class="text-center" style="margin-top: 1rem;"><span class="text-btn-mostrar">Click on the button to
-                        see coin prices!</span>
-                    <button id="dollar" class="btn-show">USD</button>
-                    <button id="euro" class="btn-show">EUR</button>
-                </p>
-
-
-                <!------------ TABLAS USD/EUR ------------->
-                <table class="table tabla--dollar table-dark mx-5 my-4 shadow hidden">
-                    <thead>
-                        <tr class="text-center">
-                            <th class="rank">#</th>
-                            <th class="name">Nombre</th>
-                            <!-- <th class="Simbolo">Simbolo</th> -->
-                            <th class="image">Precio</th>
-                            <th class="price_change">24h (%)</th>
-                            <!-- <th class="price">Icono</th> -->
-                        </tr>
-                    </thead>
-                    <tbody id="dollar-data">
-
-                    </tbody>
-                </table>
-                <table class="table tabla--euro table-dark mx-5 my-4 shadow hidden">
-                    <thead>
-                        <tr class="text-center">
-                            <th class="rank">#</th>
-                            <th class="name">Nombre</th>
-                            <!-- <th class="Simbolo">Simbolo</th> -->
-                            <th class="image">Precio</th>
-                            <th class="price_change">24h (%)</th>
-                            <!-- <th class="price">Icono</th> -->
-                        </tr>
-                    </thead>
-                    <tbody id="euro-data">
-
-                    </tbody>
-                </table>
-                <!-- <div id="coins"></div> -->
-            </aside>
-        </div>
-    </section>
-
-    <!---------------------------------------- CONVERSIONES  ------------------------------>
-
-
-    <div class="row justify-content-md-center">
-        <div class="col-md-6">
-            <!------------ SATOSHI TO BTC ------------->
-            <div class="card my-1 shadow">
-                <h6 class="card-header head">CONVERT SATOSHI TO BITCOIN</h6>
-                <div class="card-body my-3">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-6">
-                            <div class="input-group">
-                                <input type="number" class="form-control" id="satoshi-value" oninput="calculateBTC()">
-                                <div class="input-group-text">Satoshi</div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-1">
-                            <div class="text-center">
-                                <i class="fas fa-arrow-right arrow-icon"></i>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-5">
-                            <div class="input-group recompensa">
-
-                                <input type="number" class="form-control" disabled id="btc-resultado">
-                                <div class="input-group-text font-weight-bold">BTC</div>
-                            </div>
-                        </div>
+                <!------------ INGRESA PODER ------------->
+                <div class="form-group row my-4">
+                    <label class="mb-2">Enter Your Desired Goal Power</label>
+                    <div class="col-8">
+                        <input type="number" class="form-control" name="goal-power-hash" id="goal-power">
+                    </div>
+                    <div class="col-4">
+                        <select class="form-select" name="goal-power-prefix" id="goal-power-selector">
+                            <option value="ghs">GH/s</option>
+                            <option selected value="ths">TH/s</option>
+                            <option value="phs">PH/s</option>
+                            <option value="ehs">EH/s</option>
+                        </select>
                     </div>
                 </div>
+
+                <!------------ INGRESA RECOMPENSA POR BLOQUE ------------->
+                <div class="form-group row my-4">
+                    <label class="mb-2">Enter Block Reward For Desired Coin</label>
+                    <div class="col-8">
+                        <input type="number" class="form-control" name="block-reward" id="block-reward" step="any">
+                    </div>
+                    <div class="col-4">
+                        <select class="form-select" name="block-type" id="block-type" onchange="blockAmount()">
+                            <option value=" BTC">Bitcoin (BTC)</option>
+                            <option value="DOGE">Doge (DOGE)</option>
+                            <option value="ETH">Ethereum (ETH)</option>
+                            <option value="BNB">Binance Coin (BNB)</option>
+                            <option value="MATIC">Polygon (MATIC)</option>
+                            <option value="RLT">RollerToken (RLT)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="btn-show mt-2" onclick="calculateGoalPower()">Calculate</button>
             </div>
-
-
-            <!------------ CRYPTO TO USD/EUR ------------->
-            <div class="card my-4 shadow">
-                <h6 class="card-header head">CONVERT CRYPTOCURRENCY TO DOLLAR OR EURO</h6>
-                <div class="card-body my-3">
-                    <div class="row">
-                        <div class="col-xs-4 col-sm-4 col-md-2">
-                            <select class="form-select fs-6" name="crypto-type" id="crypto-type"
-                                onchange="calculated$()">
-                                <option value="btc">BTC (Bitcoin)</option>
-                                <option value="eth">ETH (Ethereum)</option>
-                                <option value="bnb">BNB (Binance Coin)</option>
-                                <option value="doge">DOGE (Dogecoin)</option>
-                                <option value="matic">MATIC (Polygon)</option>
-                            </select>
-                        </div>
-                        <div class="col-xs-8 col-sm-8 col-md-4">
-                            <div class="input-group">
-                                <input type="number" class="form-control" id="btc-value" oninput="calculated$()">
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-1">
-                            <div class="text-center">
-                                <i class="fas fa-arrow-right arrow-icon"></i>
-                            </div>
-                        </div>
-                        <div class="col-xs-10 col-sm-8 col-md-3">
-                            <div class="form-group recompensa">
-                                <input type="number" class="form-control" disabled id="coin-resultado">
-                            </div>
-                        </div>
-                        <div class="col-xs-2 col-sm-4 col-md-2">
-                            <select class="form-select fs-6" name="coin-type" id="coin-type" onchange="calculated$()">
-                                <option value="dolar">USD (Dollar)</option>
-                                <option value="euro">EUR (Euro)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
+            <!------------ RESULTADOS DE CALCULADORA ------------->
+            <div class="my-5 p-3 card shadow recompensa">
+                <p>Block Reward: <span id="exp_reward"></span></p>
+                <p>Daily Reward: <span id="daily"></span></p>
+                <p>Weekly Reward: <span id="weekly"></span></p>
+                <p>Monthly Reward: <span id="monthly"></span></p>
+                <!-- <p>Btc: <span id="btc-resultado"></span></p> -->
             </div>
+        </article>
 
-        </div>
-        <div class="col-md-0">
-
-        </div>
-    </div>
-    <div class="row my-4">
-        <div class="col-md-6">
-
-        </div>
-        <div class="col-md-6">
-
-        </div>
-    </div>
-    </section>
-
-
-    <!------------ FOOTER ------------->
-    <footer>
-        <div class="footer-content">
-
-            <div class="social-menu">
-                <ul>
-                    <li><a title="Tik Tok" href="#" target="blank"><i class="fab fa-tiktok"></i></i></a></li>
-                    <li><a title="Discord" href="#" target="blank"><i class="fab fa-discord"></i></a></li>
-                    <li><a title="Instagram" href="#" target="blank"><i class="fab fa-instagram"></i></a></li>
-                    <li><a title="Facebook" href="#" target="blank"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a title="YouTube" href="https://www.youtube.com/channel/UC-jnYI95Ox8u1uMV4XyIK1Q"
-                            target="blank"><i class="fab fa-youtube"></i></a></li>
-                </ul>
-            </div>
-
+        <!------------ PROMO ROLLERCOIN ------------->
+        <aside class="col-md-6">
             <div class="container">
-                <p>RollYourNumbers isn't endorsed by Rollercoin and does not reflect the views or opinions of anyone
-                    officially involved in producing and managing Rollercoin and their service(s).</p>
+                <div class="prom">
+                    <!--Start rollercoin.com code-->
+                    <a href="https://rollercoin.com/?r=kulwx0ob">
+                        <img src="./img/roller.gif" alt="320h100" />
+                    </a>
+                    <!--End rollercoin.com code-->
+                </div>
             </div>
 
-            <div class="footer-bottom">
-                <span>copyright &copy; 2021 <b> RollerCoin </b></span>
+            <!------------ BOTONES DE CONSUMO API ------------->
+            <p class="text-center" style="margin-top: 1rem;"><span class="text-btn-mostrar">Click on the button to
+                    see coin prices!</span>
+                <button id="dollar" class="btn-show">USD</button>
+                <button id="euro" class="btn-show">EUR</button>
+            </p>
+
+
+            <!------------ TABLAS USD/EUR ------------->
+            <table class="table tabla--dollar table-dark mx-5 my-4 shadow hidden">
+                <thead>
+                    <tr class="text-center">
+                        <th class="rank">#</th>
+                        <th class="name">Nombre</th>
+                        <!-- <th class="Simbolo">Simbolo</th> -->
+                        <th class="image">Precio</th>
+                        <th class="price_change">24h (%)</th>
+                        <!-- <th class="price">Icono</th> -->
+                    </tr>
+                </thead>
+                <tbody id="dollar-data">
+
+                </tbody>
+            </table>
+            <table class="table tabla--euro table-dark mx-5 my-4 shadow hidden">
+                <thead>
+                    <tr class="text-center">
+                        <th class="rank">#</th>
+                        <th class="name">Nombre</th>
+                        <!-- <th class="Simbolo">Simbolo</th> -->
+                        <th class="image">Precio</th>
+                        <th class="price_change">24h (%)</th>
+                        <!-- <th class="price">Icono</th> -->
+                    </tr>
+                </thead>
+                <tbody id="euro-data">
+
+                </tbody>
+            </table>
+            <!-- <div id="coins"></div> -->
+        </aside>
+    </div>
+</section>
+
+<!---------------------------------------- CONVERSIONES  ------------------------------>
+
+
+<div class="row justify-content-md-center">
+    <div class="col-md-6">
+        <!------------ SATOSHI TO BTC ------------->
+        <div class="card my-1 shadow">
+            <h6 class="card-header head">CONVERT SATOSHI TO BITCOIN</h6>
+            <div class="card-body my-3">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="satoshi-value" oninput="calculateBTC()">
+                            <div class="input-group-text">Satoshi</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-1">
+                        <div class="text-center">
+                            <i class="fas fa-arrow-right arrow-icon"></i>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-5">
+                        <div class="input-group recompensa">
+
+                            <input type="number" class="form-control" disabled id="btc-resultado">
+                            <div class="input-group-text font-weight-bold">BTC</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-    </footer>
 
-    <!--Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-    <!-- jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Calculator.js -->
-    <script src="./js/calculator.js"></script>
-    <!--social media -->
-    <script src="https://kit.fontawesome.com/66aa7c98b3.js" type="text/javascript" crossorigin="anonymous"></script>
+        <!------------ CRYPTO TO USD/EUR ------------->
+        <div class="card my-4 shadow">
+            <h6 class="card-header head">CONVERT CRYPTOCURRENCY TO DOLLAR OR EURO</h6>
+            <div class="card-body my-3">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-2">
+                        <select class="form-select fs-6" name="crypto-type" id="crypto-type" onchange="calculated$()">
+                            <option value="btc">BTC (Bitcoin)</option>
+                            <option value="eth">ETH (Ethereum)</option>
+                            <option value="bnb">BNB (Binance Coin)</option>
+                            <option value="doge">DOGE (Dogecoin)</option>
+                            <option value="matic">MATIC (Polygon)</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-8 col-sm-8 col-md-4">
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="btc-value" oninput="calculated$()">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-1">
+                        <div class="text-center">
+                            <i class="fas fa-arrow-right arrow-icon"></i>
+                        </div>
+                    </div>
+                    <div class="col-xs-10 col-sm-8 col-md-3">
+                        <div class="form-group recompensa">
+                            <input type="number" class="form-control" disabled id="coin-resultado">
+                        </div>
+                    </div>
+                    <div class="col-xs-2 col-sm-4 col-md-2">
+                        <select class="form-select fs-6" name="coin-type" id="coin-type" onchange="calculated$()">
+                            <option value="dolar">USD (Dollar)</option>
+                            <option value="euro">EUR (Euro)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-0">
+
+    </div>
+</div>
+<div class="row my-4">
+    <div class="col-md-6">
+
+    </div>
+    <div class="col-md-6">
+
+    </div>
+</div>
+</section>
 
 
-    <!-- Animación del botón -->
-    <script>
-        var animateButton = function (e) {
-            e.preventDefault;
-            //reset animation
+<!------------ FOOTER ------------->
+<footer>
+    <div class="footer-content">
+
+        <div class="social-menu">
+            <ul>
+                <li><a title="Tik Tok" href="#" target="blank"><i class="fab fa-tiktok"></i></i></a></li>
+                <li><a title="Discord" href="#" target="blank"><i class="fab fa-discord"></i></a></li>
+                <li><a title="Instagram" href="#" target="blank"><i class="fab fa-instagram"></i></a></li>
+                <li><a title="Facebook" href="#" target="blank"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a title="YouTube" href="https://www.youtube.com/channel/UC-jnYI95Ox8u1uMV4XyIK1Q" target="blank"><i
+                            class="fab fa-youtube"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <p>RollYourNumbers isn't endorsed by Rollercoin and does not reflect the views or opinions of anyone
+                officially involved in producing and managing Rollercoin and their service(s).</p>
+        </div>
+
+        <div class="footer-bottom">
+            <span>copyright &copy; 2021 <b> RollerCoin </b></span>
+        </div>
+    </div>
+
+</footer>
+
+<!--Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Calculator.js -->
+<script src="./js/calculator.js"></script>
+<!--social media -->
+<script src="https://kit.fontawesome.com/66aa7c98b3.js" type="text/javascript" crossorigin="anonymous"></script>
+
+
+<!-- Animación del botón -->
+<script>
+    var animateButton = function (e) {
+        e.preventDefault;
+        //reset animation
+        e.target.classList.remove("animate");
+
+        e.target.classList.add("animate");
+        setTimeout(function () {
             e.target.classList.remove("animate");
+        }, 700);
+    };
 
-            e.target.classList.add("animate");
-            setTimeout(function () {
-                e.target.classList.remove("animate");
-            }, 700);
-        };
+    var bubblyButtons = document.getElementsByClassName("btn-show");
 
-        var bubblyButtons = document.getElementsByClassName("btn-show");
+    for (var i = 0; i < bubblyButtons.length; i++) {
+        bubblyButtons[i].addEventListener("click", animateButton, false);
+    }   
+</script>
+<!-- fin animación del botón -->
 
-        for (var i = 0; i < bubblyButtons.length; i++) {
-            bubblyButtons[i].addEventListener("click", animateButton, false);
-        }   
-    </script>
-    <!-- fin animación del botón -->
-
-    </body>
+</body>
 
 </html>
