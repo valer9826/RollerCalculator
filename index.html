@@ -17,7 +17,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
-<-- class="body" onload="calculateGoalPower(), blockAmount()">
+<body class="body" onload="calculateGoalPower(), blockAmount()">
     <header>
 
     </header>
@@ -89,18 +89,21 @@
                     <p>Monthly Reward: <span id="monthly"></span></p>
                     <!-- <p>Btc: <span id="btc-resultado"></span></p> -->
                 </div>
+                <!------------ END RESULTADOS DE CALCULADORA ------------->
             </article>
 
-            <!------------ PROMO ROLLERCOIN ------------->
+      
             <aside class="col-md-6">
                 <div class="container">
+                    <!------------ PROMO ROLLERCOIN ------------->
                     <div class="prom">
                         <!--Start rollercoin.com code-->
                         <a href="https://rollercoin.com/?r=kulwx0ob">
-                            <img src="./img/roller.gif" alt="320h100" />
+                            <img src="./img/roller.gif" class="img-fluid" alt="320h100" />
                         </a>
                         <!--End rollercoin.com code-->
                     </div>
+                    <!------------ END PROMO ROLLERCOIN ------------->
                 </div>
 
                 <!------------ BOTONES DE CONSUMO API ------------->
@@ -112,48 +115,49 @@
 
 
                 <!------------ TABLAS USD/EUR ------------->
-                <table class="table tabla--dollar table-dark mx-5 my-4 shadow hidden">
-                    <thead>
-                        <tr class="text-center">
-                            <th class="rank">#</th>
-                            <th class="name">Nombre</th>
-                            <!-- <th class="Simbolo">Simbolo</th> -->
-                            <th class="image">Precio</th>
-                            <th class="price_change">24h (%)</th>
-                            <!-- <th class="price">Icono</th> -->
-                        </tr>
-                    </thead>
-                    <tbody id="dollar-data">
-
-                    </tbody>
-                </table>
-                <table class="table tabla--euro table-dark mx-5 my-4 shadow hidden">
-                    <thead>
-                        <tr class="text-center">
-                            <th class="rank">#</th>
-                            <th class="name">Nombre</th>
-                            <!-- <th class="Simbolo">Simbolo</th> -->
-                            <th class="image">Precio</th>
-                            <th class="price_change">24h (%)</th>
-                            <!-- <th class="price">Icono</th> -->
-                        </tr>
-                    </thead>
-                    <tbody id="euro-data">
-
-                    </tbody>
-                </table>
-                <!-- <div id="coins"></div> -->
+                <div>
+                    <table class="table tabla--dollar table-dark my-4 shadow hidden">
+                        <thead>
+                            <tr class="text-center">
+                                <th class="rank">#</th>
+                                <th class="name">Nombre</th>
+                                <!-- <th class="Simbolo">Simbolo</th> -->
+                                <th class="image">Precio</th>
+                                <th class="price_change">24h (%)</th>
+                                <!-- <th class="price">Icono</th> -->
+                            </tr>
+                        </thead>
+                        <tbody id="dollar-data">
+    
+                        </tbody>
+                    </table>
+                    <table class="table tabla--euro table-dark my-4 shadow hidden">
+                        <thead>
+                            <tr class="text-center">
+                                <th class="rank">#</th>
+                                <th class="name">Nombre</th>
+                                <!-- <th class="Simbolo">Simbolo</th> -->
+                                <th class="image">Precio</th>
+                                <th class="price_change">24h (%)</th>
+                                <!-- <th class="price">Icono</th> -->
+                            </tr>
+                        </thead>
+                        <tbody id="euro-data">
+    
+                        </tbody>
+                    </table>
+                </div>
+                <!------------END TABLAS USD/EUR ------------->
             </aside>
         </div>
     </section>
 
     <!---------------------------------------- CONVERSIONES  ------------------------------>
 
-
     <div class="row justify-content-md-center">
-        <div class="col-md-6">
+        <div class="col-md-7">
             <!------------ SATOSHI TO BTC ------------->
-            <div class="card my-1 shadow">
+            <div class="card my-4 shadow">
                 <h6 class="card-header head">CONVERT SATOSHI TO BITCOIN</h6>
                 <div class="card-body my-3">
                     <div class="row">
@@ -178,14 +182,14 @@
                     </div>
                 </div>
             </div>
-
+            <!------------ END SATOSHI TO BTC ------------->
 
             <!------------ CRYPTO TO USD/EUR ------------->
             <div class="card my-4 shadow">
                 <h6 class="card-header head">CONVERT CRYPTOCURRENCY TO DOLLAR OR EURO</h6>
                 <div class="card-body my-3">
                     <div class="row">
-                        <div class="col-xs-4 col-sm-4 col-md-2">
+                        <div class="col-xs-4 col-sm-4 col-md-3">
                             <select class="form-select fs-6" name="crypto-type" id="crypto-type"
                                 onchange="calculated$()">
                                 <option value="btc">BTC (Bitcoin)</option>
@@ -195,7 +199,7 @@
                                 <option value="matic">MATIC (Polygon)</option>
                             </select>
                         </div>
-                        <div class="col-xs-8 col-sm-8 col-md-4">
+                        <div class="col-xs-8 col-sm-8 col-md-3">
                             <div class="input-group">
                                 <input type="number" class="form-control" id="btc-value" oninput="calculated$()">
                             </div>
@@ -219,12 +223,14 @@
                     </div>
                 </div>
             </div>
+            <!------------ END CRYPTO TO USD/EUR ------------->
 
         </div>
         <div class="col-md-0">
 
         </div>
     </div>
+    <!---------------------------------------- END CONVERSIONES  ------------------------------>
     <div class="row my-4">
         <div class="col-md-6">
 
@@ -262,6 +268,7 @@
         </div>
 
     </footer>
+    <!------------END FOOTER ------------->
 
     <!--Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
