@@ -87,12 +87,12 @@
             </article>
 
 
-            <aside class="col-md-6" >
+            <aside class="col-md-6">
                 <div class="container">
                     <div class="prom">
                         <!--Start rollercoin.com code-->
                         <a href="https://rollercoin.com/?r=kulwx0ob">
-                            <img src="./img/roller.gif" alt="320h100"/>
+                            <img src="./img/roller.gif" alt="320h100" />
                         </a>
                         <!--End rollercoin.com code-->
                     </div>
@@ -100,12 +100,11 @@
 
                 <p class="text-center" style="margin-top: 1rem;"><span class="text-btn-mostrar">Click on the button to
                         see coin prices!</span>
-                    <button class="btn-show btn-mostrar">
-                        Show prices
-                    </button>
+                    <button id="dollar" class="btn-show">USD</button>
+                    <button id="euro" class="btn-show">EUR</button>
                 </p>
 
-                <table class="table table-dark mx-5 my-4 shadow hidden">
+                <table class="table tabla--dollar table-dark mx-5 my-4 shadow hidden">
                     <thead>
                         <tr class="text-center">
                             <th class="rank">#</th>
@@ -116,7 +115,22 @@
                             <!-- <th class="price">Icono</th> -->
                         </tr>
                     </thead>
-                    <tbody id="crytocurrencies">
+                    <tbody id="dollar-data">
+
+                    </tbody>
+                </table>
+                <table class="table tabla--euro table-dark mx-5 my-4 shadow hidden">
+                    <thead>
+                        <tr class="text-center">
+                            <th class="rank">#</th>
+                            <th class="name">Nombre</th>
+                            <!-- <th class="Simbolo">Simbolo</th> -->
+                            <th class="image">Precio</th>
+                            <th class="price_change">24h (%)</th>
+                            <!-- <th class="price">Icono</th> -->
+                        </tr>
+                    </thead>
+                    <tbody id="euro-data">
 
                     </tbody>
                 </table>
@@ -130,8 +144,9 @@
                     <div class="card-body my-3">
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-6">
-                                <div class="input-group">   
-                                    <input type="number" class="form-control" id="satoshi-value" oninput="calculateBTC()">
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="satoshi-value"
+                                        oninput="calculateBTC()">
                                     <div class="input-group-text">Satoshi</div>
                                 </div>
                             </div>
@@ -142,7 +157,7 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-5">
                                 <div class="input-group recompensa">
-                                    
+
                                     <input type="number" class="form-control" disabled id="btc-resultado">
                                     <div class="input-group-text font-weight-bold">BTC</div>
                                 </div>
@@ -156,7 +171,8 @@
                     <div class="card-body my-3">
                         <div class="row">
                             <div class="col-xs-4 col-sm-4 col-md-2">
-                                <select class="form-select fs-6" name="crypto-type" id="crypto-type" onchange="calculated$()">
+                                <select class="form-select fs-6" name="crypto-type" id="crypto-type"
+                                    onchange="calculated$()">
                                     <option value="btc">BTC (Bitcoin)</option>
                                     <option value="eth">ETH (Ethereum)</option>
                                     <option value="bnb">BNB (Binance Coin)</option>
@@ -180,7 +196,8 @@
                                 </div>
                             </div>
                             <div class="col-xs-2 col-sm-4 col-md-2">
-                                <select class="form-select fs-6" name="coin-type" id="coin-type" onchange="calculated$()">
+                                <select class="form-select fs-6" name="coin-type" id="coin-type"
+                                    onchange="calculated$()">
                                     <option value="dolar">USD (Dollar)</option>
                                     <option value="euro">EUR (Euro)</option>
                                 </select>
@@ -190,15 +207,15 @@
                 </div>
             </div>
             <div class="col-md-0">
-                
+
             </div>
         </div>
         <div class="row my-4">
             <div class="col-md-6">
-                
+
             </div>
             <div class="col-md-6">
-                
+
             </div>
         </div>
     </section>
@@ -226,6 +243,8 @@
                 <span>copyright &copy; 2021 <b> RollerCoin </b></span>
             </div>
         </div>
+
+
     </footer>
 
     <!--Bootstrap -->
@@ -265,25 +284,55 @@
     <!-- coingecko -->
     <script>
 
-        var xhReq = new XMLHttpRequest();
-        xhReq.open("GET", "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum%2C%20dogecoin%2C%20matic-network%2C%20binancecoin&order=market_cap_desc&per_page=100&page=1&sparkline=false", false)
-        xhReq.send(null);
-        var data = JSON.parse(xhReq.responseText);
-        clickCounter = 0;
-        console.log(data);
+        const btnDollar = document.getElementById('dollar');
+        const btnEuro = document.getElementById('euro');
+
+        let clickDollar = 0;
+        let clickEuro = 0;
+        const moneda = ['dollar', 'euro'];
+        const monedaSimbolo = ['$', '€'];
+
+        btnDollar.addEventListener('click', function () {
+
+            if (clickDollar === 0) {
+                let xhReq = new XMLHttpRequest();
+                xhReq.open("GET", "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum%2C%20dogecoin%2C%20matic-network%2C%20binancecoin&order=market_cap_desc&per_page=100&page=1&sparkline=false", false)
+                xhReq.send(null);
+                let dataDollar = JSON.parse(xhReq.responseText);
+                console.log(dataDollar);
+                resetBoard(dataDollar, moneda[0], monedaSimbolo[0]);
+                clickDollar++;
+            }
+            Mostrar(moneda[0]);
+
+        })
+
+        btnEuro.addEventListener('click', function () {
+
+            if (clickEuro === 0) {
+                let euroReq = new XMLHttpRequest();
+                euroReq.open("GET", "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=bitcoin%2C%20ethereum%2C%20dogecoin%2C%20matic-network%2C%20binancecoin&order=market_cap_desc&per_page=100&page=1&sparkline=false", false)
+                euroReq.send(null);
+                let dataEuro = JSON.parse(euroReq.responseText);
+                console.log(dataEuro);
+                resetBoard(dataEuro, moneda[1], monedaSimbolo[1]);
+                clickEuro++;
+            }
+            Mostrar(moneda[1]);
+        })
 
         //Inicializar
         var crytocurrencies;
         // var timerId;
         // var updateInterval;
 
-        function resetBoard() {
-            var $list = $("#crytocurrencies")
+        function resetBoard(data, moneda, monedaSimbolo) {
+            var $list = $(`#${moneda}-data`);
             $list.find(".crytocurrency").remove();
-            crytocurrencies = [];
+            dataMoneda = [];
 
             for (let i = 0; i < 5; i++) {
-                crytocurrencies.push({
+                dataMoneda.push({
                     name: data[i].name,
                     symbol: data[i].symbol,
                     current_price: data[i].current_price,
@@ -291,34 +340,25 @@
                     image: data[i].image,
                 })
             }
-            for (var i = 0; i < crytocurrencies.length; i++) {
+            for (var i = 0; i < dataMoneda.length; i++) {
                 var $item = $(
                     "<tr class='text-center'>" +
                     "<td>" + (i + 1) + "</td>" +
                     "<td class='name'>"
-                    + "<img class='img__crypto' src='" + crytocurrencies[i].image + "'/>"
-                    + "<span>" + crytocurrencies[i].name + "</span>"
-                    + "<span class='symbol'>" + crytocurrencies[i].symbol + "</span>" +
+                    + "<img class='img__crypto' src='" + dataMoneda[i].image + "'/>"
+                    + "<span>" + dataMoneda[i].name + "</span>"
+                    + "<span class='symbol'>" + dataMoneda[i].symbol + "</span>" +
                     "</td>" +
                     // "<td class='symbol'>" + crytocurrencies[i].symbol + "</td>" +  
-                    "<td>$ " + crytocurrencies[i].current_price + "</td>" +
-                    "<td class=''>" + crytocurrencies[i].price_change + "</td>" +
+                    "<td>" + monedaSimbolo + " " + dataMoneda[i].current_price + "</td>" +
+                    "<td class=''>" + dataMoneda[i].price_change + "</td>" +
                     // "<td class='image'>"+"<img class='img__crypto' src='"+ crytocurrencies[i].image+"'/>" + "</td>" +
                     "</tr>"
                 );
-                crytocurrencies[i].$item = $item;
+                dataMoneda[i].$item = $item;
                 $list.append($item);
             }
         }
-
-        btnMostrar.addEventListener("click", function () {
-
-            if (clickCounter == 0) {
-                resetBoard();
-                clickCounter++;
-            }
-        });
-
 
     </script>
     <!-- fin coingecko -->

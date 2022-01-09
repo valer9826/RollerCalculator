@@ -29,28 +29,22 @@
 
 const btnMostrar = document.querySelector(".btn-mostrar");
 
-function Mostrar() {
-  let elem = document.querySelector(".table");
-  let btn = document.querySelector(".btn-mostrar");
+function Mostrar(moneda) {
+  let elem = document.querySelector(`.tabla--${moneda}`);
   let prom = document.querySelector(".prom");
   let textBtnMostrar = document.querySelector(".text-btn-mostrar");
 
   if (elem.classList.contains("hidden")) {
     elem.classList.remove("hidden");
     prom.classList.add("hidden");
-    btn.innerHTML = "Hide";
+
     textBtnMostrar.innerHTML = "Click on the button to hide!";
   } else {
     elem.classList.add("hidden");
     prom.classList.remove("hidden");
     textBtnMostrar.innerHTML = "Click on the button to see coin prices!";
-    btn.innerHTML = "Show prices";
   }
 }
-
-btnMostrar.addEventListener("click", () => {
-  Mostrar();
-});
 
 function blockAmount() {
   // Returns pre-set block rewards based on block selected
@@ -251,18 +245,9 @@ function calculateGoalPower() {
   }
 }
 
-// https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
-
-var xhReq = new XMLHttpRequest();
-xhReq.open("GET", "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false", false)
-xhReq.send(null);
-var bitcoinData = JSON.parse(xhReq.responseText);
-
-console.log(bitcoinData);
-
-function calculateBTC(){
+function calculateBTC() {
   var satoshi = parseFloat(document.getElementById("satoshi-value").value);
-  var btc = satoshi/100000000;
+  var btc = satoshi / 100000000;
 
   console.log(satoshi);
 
@@ -271,10 +256,10 @@ function calculateBTC(){
   document.getElementById("btc-resultado").value = btc.toFixed(8);
 }
 
-function calculated$(){
+function calculated$() {
   var crypto = parseFloat(document.getElementById("btc-value").value);
 
-  var btc_dolar = crypto * 46132.10;
+  var btc_dolar = crypto * 46132.1;
   var btc_euro = crypto * 41293.76;
 
   var eth_dolar = crypto * 3814.51;
@@ -289,57 +274,64 @@ function calculated$(){
   var matic_dolar = crypto * 2.42;
   var matic_euro = crypto * 2.14;
 
-  switch (document.getElementById("crypto-type").selectedIndex){
+  switch (document.getElementById("crypto-type").selectedIndex) {
     case 0:
       switch (document.getElementById("coin-type").selectedIndex) {
         case 0:
-            document.getElementById("coin-resultado").value = btc_dolar.toFixed(2);
+          document.getElementById("coin-resultado").value =
+            btc_dolar.toFixed(2);
           break;
         default:
-            document.getElementById("coin-resultado").value = btc_euro.toFixed(2);
+          document.getElementById("coin-resultado").value = btc_euro.toFixed(2);
           break;
       }
-    break;
+      break;
     case 1:
       switch (document.getElementById("coin-type").selectedIndex) {
         case 0:
-            document.getElementById("coin-resultado").value = eth_dolar.toFixed(2);
+          document.getElementById("coin-resultado").value =
+            eth_dolar.toFixed(2);
           break;
         default:
-            document.getElementById("coin-resultado").value = eth_euro.toFixed(2);
+          document.getElementById("coin-resultado").value = eth_euro.toFixed(2);
           break;
       }
-    break;
+      break;
     case 2:
       switch (document.getElementById("coin-type").selectedIndex) {
         case 0:
-            document.getElementById("coin-resultado").value = bnb_dolar.toFixed(2);
+          document.getElementById("coin-resultado").value =
+            bnb_dolar.toFixed(2);
           break;
         default:
-            document.getElementById("coin-resultado").value = bnb_euro.toFixed(2);
+          document.getElementById("coin-resultado").value = bnb_euro.toFixed(2);
           break;
       }
-    break;
+      break;
     case 3:
       switch (document.getElementById("coin-type").selectedIndex) {
         case 0:
-            document.getElementById("coin-resultado").value = doge_dolar.toFixed(2);
+          document.getElementById("coin-resultado").value =
+            doge_dolar.toFixed(2);
           break;
         default:
-            document.getElementById("coin-resultado").value = doge_euro.toFixed(2);
+          document.getElementById("coin-resultado").value =
+            doge_euro.toFixed(2);
           break;
       }
-    break;
+      break;
     default:
       switch (document.getElementById("coin-type").selectedIndex) {
         case 0:
-            document.getElementById("coin-resultado").value = matic_dolar.toFixed(2);
+          document.getElementById("coin-resultado").value =
+            matic_dolar.toFixed(2);
           break;
         default:
-            document.getElementById("coin-resultado").value = matic_euro.toFixed(2);
+          document.getElementById("coin-resultado").value =
+            matic_euro.toFixed(2);
           break;
       }
-    break;
+      break;
   }
 
   console.log(crypto);
