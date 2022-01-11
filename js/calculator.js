@@ -42,45 +42,55 @@ let clickEuro = 0;
 const moneda = ["dollar", "euro"];
 const monedaSimbolo = ["$", "€"];
 
+//INICIALIZACION ARREGLOS DE PRECIOS PARA CONVERSION
+const precioDollarMonedas = [];
+const precioEuroMonedas = [];
+
+//CONSULTA DOLARES API
+let xhReq = new XMLHttpRequest();
+xhReq.open(
+  "GET",
+  "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum%2C%20dogecoin%2C%20matic-network%2C%20binancecoin&order=market_cap_desc&per_page=100&page=1&sparkline=false",
+  false
+);
+xhReq.send(null);
+let dataDollar = JSON.parse(xhReq.responseText);
+console.log(dataDollar);
+currentPriceDollar(dataDollar);
+
 btnDollar.addEventListener("click", function () {
   if (clickDollar === 0) {
-    let xhReq = new XMLHttpRequest();
-    xhReq.open(
-      "GET",
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum%2C%20dogecoin%2C%20matic-network%2C%20binancecoin&order=market_cap_desc&per_page=100&page=1&sparkline=false",
-      false
-    );
-    xhReq.send(null);
-    let dataDollar = JSON.parse(xhReq.responseText);
-    console.log(dataDollar);
     resetBoard(dataDollar, moneda[0], monedaSimbolo[0]);
     clickDollar++;
   }
   Mostrar(moneda[0]);
 });
 
+//CONSULTA EUROS API
+let euroReq = new XMLHttpRequest();
+euroReq.open(
+  "GET",
+  "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=bitcoin%2C%20ethereum%2C%20dogecoin%2C%20matic-network%2C%20binancecoin&order=market_cap_desc&per_page=100&page=1&sparkline=false",
+  false
+);
+euroReq.send(null);
+let dataEuro = JSON.parse(euroReq.responseText);
+console.log(dataEuro);
+currenPriceEuro(dataEuro);
+
 btnEuro.addEventListener("click", function () {
   if (clickEuro === 0) {
-    let euroReq = new XMLHttpRequest();
-    euroReq.open(
-      "GET",
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=bitcoin%2C%20ethereum%2C%20dogecoin%2C%20matic-network%2C%20binancecoin&order=market_cap_desc&per_page=100&page=1&sparkline=false",
-      false
-    );
-    euroReq.send(null);
-    let dataEuro = JSON.parse(euroReq.responseText);
-    console.log(dataEuro);
     resetBoard(dataEuro, moneda[1], monedaSimbolo[1]);
     clickEuro++;
   }
   Mostrar(moneda[1]);
 });
 
-//Imprimir en tabla
+//IMPRIMIR TABLA
 function resetBoard(data, moneda, monedaSimbolo) {
   var $list = $(`#${moneda}-data`);
   $list.find(".crytocurrency").remove();
-  dataMoneda = [];
+  const dataMoneda = [];
 
   for (let i = 0; i < 5; i++) {
     dataMoneda.push({
@@ -155,24 +165,41 @@ function calculateBTC() {
   document.getElementById("btc-resultado").value = btc.toFixed(8);
 }
 
+function currentPriceDollar(data) {
+  for (let i = 0; i < 5; i++) {
+    precioDollarMonedas.push({
+      name: data[i].name,
+      current_price: data[i].current_price,
+    });
+  }
+  console.log(precioDollarMonedas);
+}
+
+function currenPriceEuro(data) {
+  for (let i = 0; i < 5; i++) {
+    precioEuroMonedas.push({
+      name: data[i].name,
+      current_price: data[i].current_price,
+    });
+  }
+  console.log(precioEuroMonedas);
+}
+
 //Conversion Cripto a USD/EUR
 function calculated$() {
-  var crypto = parseFloat(document.getElementById("btc-value").value);
+  let crypto = parseFloat(document.getElementById("btc-value").value);
 
-  var btc_dolar = crypto * 46132.1;
-  var btc_euro = crypto * 41293.76;
+  let btc_dolar = crypto * precioDollarMonedas[0].current_price;
+  let eth_dolar = crypto * precioDollarMonedas[1].current_price;
+  let bnb_dolar = crypto * precioDollarMonedas[2].current_price;
+  let doge_dolar = crypto * precioDollarMonedas[3].current_price;
+  let matic_dolar = crypto * precioDollarMonedas[4].current_price;
 
-  var eth_dolar = crypto * 3814.51;
-  var eth_euro = crypto * 3386.72;
-
-  var bnb_dolar = crypto * 511.14;
-  var bnb_euro = crypto * 452.92;
-
-  var doge_dolar = crypto * 0.17;
-  var doge_euro = crypto * 0.12;
-
-  var matic_dolar = crypto * 2.42;
-  var matic_euro = crypto * 2.14;
+  let btc_euro = crypto * precioEuroMonedas[0].current_price;
+  let eth_euro = crypto * precioEuroMonedas[1].current_price;
+  let bnb_euro = crypto * precioEuroMonedas[2].current_price;
+  let doge_euro = crypto * precioEuroMonedas[3].current_price;
+  let matic_euro = crypto * precioEuroMonedas[4].current_price;
 
   switch (document.getElementById("crypto-type").selectedIndex) {
     case 0:
