@@ -23,7 +23,7 @@
   letter-spacing: 0.07em;
   line-height: 1.44em;
   margin-top: 24px;
-  margin-bottom: 5%;
+  /* margin-bottom: 5%; */
   text-align: center;
 }
 
@@ -40,9 +40,9 @@ input[type=number]::-webkit-outer-spin-button{
 .form-select:focus,
 .form-control:focus{
   border: 0.118em solid;
-  border-color: #4e42d4 !important;
-  /* box-shadow: 0 0 0 0.2rem rgb(243, 156, 255) !important; */
-  box-shadow: 0 0 0 0.01rem #4e42d4 !important;
+  border-color: #7f76df !important;
+  /* box-shadow: 0 0 0 0.2rem rgb(236, 208, 255) !important; */
+  box-shadow: 0 0 0 0.015rem #877fdc !important;
 }
 
 /*Table*/
@@ -209,7 +209,7 @@ tr .name {
   margin-right: auto;
   width: 50%;
   margin-top: 2em;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 /*Recompensa*/
