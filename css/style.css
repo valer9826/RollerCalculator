@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500&display=swap");
 
 * {
   margin: 0;
@@ -9,7 +9,7 @@
 .body {
   background: #f7f9fb;
   font-size: 16px;
-  font-family: 'Baloo Bhaijaan 2', cursive;
+  font-family: "Baloo Bhaijaan 2", cursive;
   letter-spacing: 0.1em;
   min-height: calc(100vh - 0px - 940px);
 }
@@ -17,7 +17,7 @@
 .titulo {
   /* font-family: 'Shizuru', cursive; */
   /* font-family: "Fredoka One", cursive; */
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
   font-size: 3em;
   color: #4e42d4;
   letter-spacing: 0.07em;
@@ -29,16 +29,16 @@
 
 /* Input type number */
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button{
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* Form control , form select */
 
 .form-select:focus,
-.form-control:focus{
+.form-control:focus {
   border: 0.118em solid;
   border-color: #7f76df !important;
   /* box-shadow: 0 0 0 0.2rem rgb(236, 208, 255) !important; */
@@ -78,44 +78,29 @@ tr .name {
 
 /* Botones mostrar modal */
 .btn-show {
-	background-color: #4e42d4;
-	border-radius: 2px;
-	border-style: none;
-	box-shadow: 1px 0px #3c33a2,
-							0px 1px #3c33a2,
-							2px 1px #3c33a2,
-							1px 2px #3c33a2,
-							3px 2px #3c33a2,
-							2px 3px #3c33a2,
-							4px 3px #3c33a2,
-							3px 4px #3c33a2,
-							5px 4px #3c33a2,
-							4px 5px #3c33a2,
-							6px 5px #3c33a2,
-							5px 6px #3c33a2;
-	color: #ffffff;
-	cursor: pointer;
-	letter-spacing: 1.7px;
+  background-color: #4e42d4;
+  border-radius: 2px;
+  border-style: none;
+  box-shadow: 1px 0px #3c33a2, 0px 1px #3c33a2, 2px 1px #3c33a2, 1px 2px #3c33a2,
+    3px 2px #3c33a2, 2px 3px #3c33a2, 4px 3px #3c33a2, 3px 4px #3c33a2,
+    5px 4px #3c33a2, 4px 5px #3c33a2, 6px 5px #3c33a2, 5px 6px #3c33a2;
+  color: #ffffff;
+  cursor: pointer;
+  letter-spacing: 1.7px;
   text-transform: uppercase;
   font-size: 0.75em;
-	padding: 10px 20px;
+  padding: 10px 20px;
   transition: all 0.3s ease 0s;
 }
 
-.btn-show:hover{
-    box-shadow: 1px 0px #3c33a2,
-	 						0px 1px #3c33a2,
-	 						2px 1px #3c33a2,
-	 						1px 2px #3c33a2,
-	 						3px 2px #3c33a2,
-	 						2px 3px #3c33a2,
-	 						4px 3px #3c33a2,
-	 						3px 4px #3c33a2;
-    transform: translate(5px);
+.btn-show:hover {
+  box-shadow: 1px 0px #3c33a2, 0px 1px #3c33a2, 2px 1px #3c33a2, 1px 2px #3c33a2,
+    3px 2px #3c33a2, 2px 3px #3c33a2, 4px 3px #3c33a2, 3px 4px #3c33a2;
+  transform: translate(5px);
 }
 
 .btn-show:focus {
-	background-color: #4e42d4;
+  background-color: #4e42d4;
 }
 
 .btn-show:before,
@@ -203,7 +188,7 @@ tr .name {
 }
 
 /* Imagen Promo */
-.prom{
+.prom {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -227,7 +212,7 @@ tr .name {
 }
 
 /*Flecha*/
-.arrow-icon{
+.arrow-icon {
   margin: 8px auto;
   color: #04c8cb;
   font-size: 25px;
@@ -349,11 +334,10 @@ footer {
 /*Media-query*/
 
 @media (max-width: 800px) {
-
   .titulo {
     /* font-family: 'Shizuru', cursive; */
     /* font-family: "Fredoka One", cursive; */
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 1.6em;
     color: #4e42d4;
     letter-spacing: 0.07em;
@@ -363,9 +347,7 @@ footer {
     text-align: center;
   }
 
- 
-
-  .prom{
+  .prom {
     margin-left: 0;
     margin-right: 0;
     width: 100%;
@@ -375,10 +357,10 @@ footer {
 
   /*Table*/
 
-  .table{
-    font-size: 0.80em;
-    margin-right: 0rem!important;
-    margin-left: 0rem!important;
+  .table {
+    font-size: 0.8em;
+    margin-right: 0rem !important;
+    margin-left: 0rem !important;
   }
 
   tr .name {

@@ -74,9 +74,9 @@
                         </div>
                         <div class="col-4">
                             <select class="form-select" name="block-type" id="block-type" onchange="blockAmount()">
+                                <option value="eth">Ethereum (ETH)</option>
                                 <option value="btc">Bitcoin (BTC)</option>
                                 <option value="doge">Doge (DOGE)</option>
-                                <option value="eth">Ethereum (ETH)</option>
                                 <option value="bnb">Binance Coin (BNB)</option>
                                 <option value="matic">Polygon (MATIC)</option>
                                 <option value="rlt">RollerToken (RLT)</option>
@@ -101,7 +101,7 @@
             <aside class="col-md-7">
                 <div class="container">
                     <!------------ SATOSHI TO BTC ------------->
-                    <div class="card my-4 shadow">
+                    <div class="card my-4 shadow" id="hidden-satoshi" style="display: none;">
                         <h6 class="card-header head">CONVERT SATOSHI TO BITCOIN</h6>
                         <div class="card-body my-3">
                             <div class="row">
