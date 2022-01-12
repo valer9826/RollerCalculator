@@ -55,6 +55,7 @@ selectBlock.addEventListener("change", (e) => {
   selectCrypto.value = selectBlock.value;
 });
 
+//AUTO SELECCIONAR MONEDA PARA CONVERSION INVERSO
 selectCrypto.addEventListener("change", (e) => {
   selectBlock.value = selectCrypto.value;
 });
