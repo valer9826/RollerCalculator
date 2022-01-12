@@ -286,13 +286,13 @@ footer {
   box-shadow: 0 5px 4px rgba(0, 0, 0, 0.5);
 
   font-size: 1.7rem;
-  line-height: 60px;
+  line-height: 2.20em;
   /* transition: 0.3s; */
   color: #000;
 }
 
 .social-menu ul li a:hover {
-  transform: translate(0, -10%);
+  transform: translate(0, -20%);
   color: #fff;
 }
 
