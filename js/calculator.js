@@ -158,7 +158,7 @@ function resetBoard(data, moneda, monedaSimbolo) {
 //Mostrar y ocultas tablas
 function Mostrar(moneda) {
   let elem = document.querySelector(`.tabla--${moneda}`);
-  let prom = document.querySelector(".prom");
+  // let prom = document.querySelector(".prom");
   let textBtnMostrar = document.querySelector(".text-btn-mostrar");
 
   if (elem.classList.contains("hidden")) {
