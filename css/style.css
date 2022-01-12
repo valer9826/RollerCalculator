@@ -208,14 +208,14 @@ tr .name {
 }
 
 /* Imagen Promo */
-.prom {
+/* .prom {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
   margin-top: 2em;
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-}
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */
 
 /*Recompensa*/
 
@@ -384,13 +384,13 @@ footer {
     font-size: 0.9rem;
   }
 
-  .prom {
+  /* .prom {
     margin-left: 0;
     margin-right: 0;
     width: 100%;
     margin-top: 2em;
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-  }
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  } */
 
   /*Table*/
 
