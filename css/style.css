@@ -27,6 +27,12 @@
   text-align: center;
 }
 
+/* Parrafo */
+#text{
+  color: #3c33a2;
+  font-size: 1.3rem;
+}
+
 /* Input type number */
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -48,8 +54,8 @@ input[type=number]::-webkit-outer-spin-button{
 /*Table*/
 .table {
   font-size: 0.85em;
-  margin-right: 2.5rem !important;
-  margin-left: 2.5rem !important;
+  margin-right: 0.5rem !important;
+  margin-left: 0.5rem !important;
 }
 
 tr .name {

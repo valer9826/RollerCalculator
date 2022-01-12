@@ -25,9 +25,8 @@
     <section class="container">
         <h1 class="titulo">RollerChange</h1>
 
-        <div class="container text-center my-5">
-            <p>RollYourNumbers isn't endorsed by Rollercoin and does not reflect the views or opinions of anyone
-                officially involved in producing and managing Rollercoin and their service(s).</p>
+        <div class="container text-center mt-3 mb-5">
+            <p id="text"></p>
         </div>
 
         <div class="row">
@@ -101,74 +100,74 @@
             <aside class="col-md-7">
                 <div class="container">
                     <!------------ SATOSHI TO BTC ------------->
-                <div class="card my-4 shadow">
-                    <h6 class="card-header head">CONVERT SATOSHI TO BITCOIN</h6>
-                    <div class="card-body my-3">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-6">
-                                <div class="input-group">
-                                    <input type="number" class="form-control" id="satoshi-value" oninput="calculateBTC()">
-                                    <div class="input-group-text">Satoshi</div>
+                    <div class="card my-4 shadow">
+                        <h6 class="card-header head">CONVERT SATOSHI TO BITCOIN</h6>
+                        <div class="card-body my-3">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-6">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="satoshi-value" oninput="calculateBTC()">
+                                        <div class="input-group-text">Satoshi</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-1">
-                                <div class="text-center">
-                                    <i class="fas fa-arrow-right arrow-icon"></i>
+                                <div class="col-xs-12 col-sm-12 col-md-1">
+                                    <div class="text-center">
+                                        <i class="fas fa-arrow-right arrow-icon"></i>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-5">
-                                <div class="input-group recompensa">
+                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                    <div class="input-group recompensa">
 
-                                    <input type="number" class="form-control" disabled id="btc-resultado">
-                                    <div class="input-group-text font-weight-bold">BTC</div>
+                                        <input type="number" class="form-control" disabled id="btc-resultado">
+                                        <div class="input-group-text font-weight-bold">BTC</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            
-                <!------------ END SATOSHI TO BTC ------------->
 
-                <!------------ CRYPTO TO USD/EUR ------------->
-                <div class="card my-4 shadow">
-                    <h6 class="card-header head">CONVERT CRYPTOCURRENCY TO DOLLAR OR EURO</h6>
-                    <div class="card-body my-3">
-                        <div class="row">
-                            <div class="col-xs-4 col-sm-4 col-md-3">
-                                <select class="form-select fs-6" name="crypto-type" id="crypto-type"
-                                    onchange="calculated$()">
-                                    <option value="btc">BTC (Bitcoin)</option>
-                                    <option value="eth">ETH (Ethereum)</option>
-                                    <option value="bnb">BNB (Binance Coin)</option>
-                                    <option value="doge">DOGE (Dogecoin)</option>
-                                    <option value="matic">MATIC (Polygon)</option>
-                                </select>
-                            </div>
-                            <div class="col-xs-8 col-sm-8 col-md-3">
-                                <div class="input-group">
-                                    <input type="number" class="form-control" id="btc-value" oninput="calculated$()">
+                    <!------------ END SATOSHI TO BTC ------------->
+
+                    <!------------ CRYPTO TO USD/EUR ------------->
+                    <div class="card my-4 shadow">
+                        <h6 class="card-header head">CONVERT CRYPTOCURRENCY TO DOLLAR OR EURO</h6>
+                        <div class="card-body my-3">
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-4 col-md-3">
+                                    <select class="form-select fs-6" name="crypto-type" id="crypto-type"
+                                        onchange="calculated$()">
+                                        <option value="btc">BTC (Bitcoin)</option>
+                                        <option value="eth">ETH (Ethereum)</option>
+                                        <option value="bnb">BNB (Binance Coin)</option>
+                                        <option value="doge">DOGE (Dogecoin)</option>
+                                        <option value="matic">MATIC (Polygon)</option>
+                                    </select>
                                 </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-1">
-                                <div class="text-center">
-                                    <i class="fas fa-arrow-right arrow-icon"></i>
+                                <div class="col-xs-8 col-sm-8 col-md-3">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="btc-value" oninput="calculated$()">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xs-10 col-sm-8 col-md-3">
-                                <div class="form-group recompensa">
-                                    <input type="number" class="form-control" disabled id="coin-resultado">
+                                <div class="col-xs-12 col-sm-12 col-md-1">
+                                    <div class="text-center">
+                                        <i class="fas fa-arrow-right arrow-icon"></i>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xs-2 col-sm-4 col-md-2">
-                                <select class="form-select fs-6" name="coin-type" id="coin-type" onchange="calculated$()">
-                                    <option value="dolar">USD (Dollar)</option>
-                                    <option value="euro">EUR (Euro)</option>
-                                </select>
+                                <div class="col-xs-10 col-sm-8 col-md-3">
+                                    <div class="form-group recompensa">
+                                        <input type="number" class="form-control" disabled id="coin-resultado">
+                                    </div>
+                                </div>
+                                <div class="col-xs-2 col-sm-4 col-md-2">
+                                    <select class="form-select fs-6" name="coin-type" id="coin-type" onchange="calculated$()">
+                                        <option value="dolar">USD (Dollar)</option>
+                                        <option value="euro">EUR (Euro)</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!------------ END CRYPTO TO USD/EUR ------------->
+                    <!------------ END CRYPTO TO USD/EUR ------------->
                 </div>
 
                 <!------------ BOTONES DE CONSUMO API ------------->
@@ -177,7 +176,6 @@
                     <button id="dollar" class="btn-show">USD</button>
                     <button id="euro" class="btn-show">EUR</button>
                 </p>
-
 
                 <!------------ TABLAS USD/EUR ------------->
                 <div>
@@ -301,6 +299,25 @@
         }   
     </script>
     <!-- fin animación del botón -->
+
+    <!-- Efecto escritura -->
+    <script type="text/javascript">
+        var i, text;
+        i = 0;
+        text = "RollYourNumbers isn't endorsed by Rollercoin and does not reflect the views or opinions of anyone officially involved in    producing and managing Rollercoin and their service(s)."
+
+        function typing(){
+            if(i<text.length){
+                document.getElementById("text").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typing, 70);
+            }
+        }
+
+        typing();
+    
+    </script>
+    <!--Fin efecto escritura -->
 
     </body>
 
