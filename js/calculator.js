@@ -162,12 +162,9 @@ function Mostrar(moneda) {
 
   if (elem.classList.contains("hidden")) {
     elem.classList.remove("hidden");
-    prom.classList.add("hidden");
-
     textBtnMostrar.innerHTML = "Click on the button to hide!";
   } else {
     elem.classList.add("hidden");
-    prom.classList.remove("hidden");
     textBtnMostrar.innerHTML = "Click on the button to see coin prices!";
   }
 }
