@@ -55,6 +55,10 @@ selectBlock.addEventListener("change", (e) => {
   selectCrypto.value = selectBlock.value;
 });
 
+selectCrypto.addEventListener("change", (e) => {
+  selectBlock.value = selectCrypto.value;
+});
+
 //CONSULTA DOLARES API
 let xhReq = new XMLHttpRequest();
 xhReq.open(
