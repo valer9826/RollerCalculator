@@ -30,6 +30,7 @@
 //Botones para consumir API
 const btnDollar = document.getElementById("dollar");
 const btnEuro = document.getElementById("euro");
+// const btnCalcular = document.getElementById("btn-calcular");
 
 //Inicializar
 var crytocurrencies;
@@ -168,6 +169,14 @@ function Mostrar(moneda) {
     textBtnMostrar.innerHTML = "Click on the button to see coin prices!";
   }
 }
+
+//CALCULAR - ENTER
+document.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    console.log(e);
+    calculateGoalPower();
+  }
+});
 
 //Conversion SATOSHI a BTC
 function calculateBTC() {
