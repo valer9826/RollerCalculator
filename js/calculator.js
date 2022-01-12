@@ -157,17 +157,17 @@ function resetBoard(data, moneda, monedaSimbolo) {
 //Mostrar y ocultas tablas
 function Mostrar(moneda) {
   let elem = document.querySelector(`.tabla--${moneda}`);
-  let prom = document.querySelector(".prom");
+  // let prom = document.querySelector(".prom");
   let textBtnMostrar = document.querySelector(".text-btn-mostrar");
 
   if (elem.classList.contains("hidden")) {
     elem.classList.remove("hidden");
-    prom.classList.add("hidden");
+    // prom.classList.add("hidden");
 
     textBtnMostrar.innerHTML = "Click on the button to hide!";
   } else {
     elem.classList.add("hidden");
-    prom.classList.remove("hidden");
+    // prom.classList.remove("hidden");
     textBtnMostrar.innerHTML = "Click on the button to see coin prices!";
   }
 }
