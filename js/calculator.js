@@ -46,6 +46,15 @@ const monedaSimbolo = ["$", "€"];
 const precioDollarMonedas = [];
 const precioEuroMonedas = [];
 
+//SELECTORES DE MONEDAS
+let selectBlock = document.getElementById("block-type");
+let selectCrypto = document.getElementById("crypto-type");
+
+//AUTO SELECCIONAR MONEDA PARA CONVERSION
+selectBlock.addEventListener("change", (e) => {
+  selectCrypto.value = selectBlock.value;
+});
+
 //CONSULTA DOLARES API
 let xhReq = new XMLHttpRequest();
 xhReq.open(
