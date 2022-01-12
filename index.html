@@ -26,7 +26,7 @@
         <h1 class="titulo">RollerChange</h1>
 
         <div class="container text-center mt-3 mb-5">
-            <p id="text"></p>
+            <span id="text"></span>
         </div>
 
         <div class="row">
@@ -73,9 +73,9 @@
                         </div>
                         <div class="col-4">
                             <select class="form-select" name="block-type" id="block-type" onchange="blockAmount()">
-                                <option value="eth">Ethereum (ETH)</option>
                                 <option value="btc">Bitcoin (BTC)</option>
                                 <option value="doge">Doge (DOGE)</option>
+                                <option value="eth">Ethereum (ETH)</option>
                                 <option value="bnb">Binance Coin (BNB)</option>
                                 <option value="matic">Polygon (MATIC)</option>
                                 <option value="rlt">RollerToken (RLT)</option>
@@ -98,9 +98,10 @@
 
 
             <aside class="col-md-7">
+                <!---------------------------------------- CONVERSIONES  ------------------------------>
                 <div class="container">
                     <!------------ SATOSHI TO BTC ------------->
-                    <div class="card my-4 shadow" id="hidden-satoshi" style="display: none;">
+                    <div class="card my-4 shadow" id="hidden-satoshi">
                         <h6 class="card-header head">CONVERT SATOSHI TO BITCOIN</h6>
                         <div class="card-body my-3">
                             <div class="row">
@@ -134,7 +135,7 @@
                         <h6 class="card-header head">CONVERT CRYPTOCURRENCY TO DOLLAR OR EURO</h6>
                         <div class="card-body my-3">
                             <div class="row">
-                                <div class="col-xs-4 col-sm-4 col-md-3">
+                                <div class="col-xs-4 col-sm-4 col-md-2">
                                     <select class="form-select fs-6" name="crypto-type" id="crypto-type"
                                         onchange="calculated$()">
                                         <option value="btc">BTC</option>
@@ -144,7 +145,7 @@
                                         <option value="matic">MATIC</option>
                                     </select>
                                 </div>
-                                <div class="col-xs-8 col-sm-8 col-md-3">
+                                <div class="col-xs-8 col-sm-8 col-md-4">
                                     <div class="input-group">
                                         <input type="number" class="form-control" id="btc-value"
                                             oninput="calculated$()">
@@ -172,13 +173,18 @@
                     </div>
                     <!------------ END CRYPTO TO USD/EUR ------------->
                 </div>
+                <!---------------------------------------- END CONVERSIONES  ------------------------------>
 
                 <!------------ BOTONES DE CONSUMO API ------------->
                 <p class="text-center" style="margin-top: 1rem;"><span class="text-btn-mostrar">Click on the button to
                         see coin prices!</span>
-                    <button id="dollar" class="btn-show">USD</button>
-                    <button id="euro" class="btn-show">EUR</button>
                 </p>
+
+                <div class="text-center">
+                    <button id="dollar" class="btn-show mx-2">USD</button>
+                    <button id="euro" class="btn-show mx-2">EUR</button>
+                </div>
+                <!------------FIN BOTONES DE CONSUMO API ------------->
 
                 <!------------ TABLAS USD/EUR ------------->
                 <div>
@@ -218,35 +224,6 @@
         </div>
     </section>
 
-    <!---------------------------------------- CONVERSIONES  ------------------------------>
-    <div class="container">
-        <div class="row">
-            <!--justify-content-md-center-->
-            <div class="col-md-5">
-                <div class="prom text-center">
-                    <!--Start rollercoin.com code-->
-                    <a href="https://rollercoin.com/?r=kulwx0ob">
-                        <img src="./img/roller.gif" class="img-fluid shadow" alt="320h100"/>
-                    </a>
-                    <!--End rollercoin.com code-->
-                </div>
-            </div>
-            <div class="col-md-7">
-
-            </div>
-        </div>
-    </div>
-    <!---------------------------------------- END CONVERSIONES  ------------------------------>
-    <div class="row my-4">
-        <div class="col-md-6">
-
-        </div>
-        <div class="col-md-6">
-
-        </div>
-    </div>
-    </section>
-
 
     <!------------ FOOTER ------------->
     <footer>
@@ -281,7 +258,8 @@
     <script src="./js/calculator.js"></script>
     <!--social media -->
     <script src="https://kit.fontawesome.com/66aa7c98b3.js" type="text/javascript" crossorigin="anonymous"></script>
-
+    <!-- Typed -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
     <!-- Animación del botón -->
     <script>
@@ -306,20 +284,14 @@
 
     <!-- Efecto escritura -->
     <script type="text/javascript">
-        var i, text;
-        i = 0;
-        text = "RollYourNumbers isn't endorsed by Rollercoin and does not reflect the views or opinions of anyone officially involved in    producing and managing Rollercoin and their service(s)."
-
-        function typing(){
-            if(i<text.length){
-                document.getElementById("text").innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typing, 70);
-            }
-        }
-
-        typing();
-    
+        var typed2 = new Typed('#text', {
+            strings: ["RollYourNumbers isn't endorsed by Rollercoin and does not reflect the views or opinions of anyone officially involved in    producing and managing Rollercoin and their service(s)."],
+            typeSpeed: 70,
+            backSpeed: 30,
+            backDelay: 5000,
+            fadeOut: true,
+            loop: true
+        });
     </script>
     <!--Fin efecto escritura -->
 

@@ -30,7 +30,7 @@
 /* Parrafo */
 #text{
   color: #3c33a2;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 /* Input type number */
@@ -344,13 +344,19 @@ footer {
     /* font-family: 'Shizuru', cursive; */
     /* font-family: "Fredoka One", cursive; */
     font-family: "Press Start 2P", cursive;
-    font-size: 1.6em;
+    font-size: 1.8em;
     color: #4e42d4;
     letter-spacing: 0.07em;
     line-height: 1.44em;
     margin-top: 24px;
     margin-bottom: 5%;
     text-align: center;
+  }
+
+  /* Parrafo */
+  #text{
+    color: #3c33a2;
+    font-size: 0.9rem;
   }
 
   .prom {
