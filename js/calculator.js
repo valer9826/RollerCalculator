@@ -312,6 +312,9 @@ function blockAmount() {
       document.getElementById("weekly").innerHTML = "NaN Satoshi";
       document.getElementById("monthly").innerHTML = "NaN Satoshi";
 
+      document.getElementById("satoshi-value").value = "";
+      document.getElementById("btc-resultado").value = "";
+
       document.getElementById("btc-value").value = "";
       document.getElementById("coin-resultado").value = "";
       // document.getElementById("coin-resultado").value = document.getElementById("coin-resultado").defaultValue;
@@ -366,7 +369,7 @@ function blockAmount() {
       document.getElementById("daily").innerHTML = "NaN Satoshi";
       document.getElementById("weekly").innerHTML = "NaN Satoshi";
       document.getElementById("monthly").innerHTML = "NaN Satoshi";
-      
+
       document.getElementById("btc-value").value = "";
       document.getElementById("coin-resultado").value = "";
       break;
