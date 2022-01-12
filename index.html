@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <head>
     <!-- Required meta tags -->
     <meta charset="UTF-8">
@@ -73,12 +73,12 @@
                         </div>
                         <div class="col-4">
                             <select class="form-select" name="block-type" id="block-type" onchange="blockAmount()">
-                                <option value=" BTC">Bitcoin (BTC)</option>
-                                <option value="DOGE">Doge (DOGE)</option>
-                                <option value="ETH">Ethereum (ETH)</option>
-                                <option value="BNB">Binance Coin (BNB)</option>
-                                <option value="MATIC">Polygon (MATIC)</option>
-                                <option value="RLT">RollerToken (RLT)</option>
+                                <option value="eth">Ethereum (ETH)</option>
+                                <option value="btc">Bitcoin (BTC)</option>
+                                <option value="doge">Doge (DOGE)</option>
+                                <option value="bnb">Binance Coin (BNB)</option>
+                                <option value="matic">Polygon (MATIC)</option>
+                                <option value="rlt">RollerToken (RLT)</option>
                             </select>
                         </div>
                     </div>
@@ -96,17 +96,18 @@
                 <!------------ END RESULTADOS DE CALCULADORA ------------->
             </article>
 
-      
+
             <aside class="col-md-7">
                 <div class="container">
                     <!------------ SATOSHI TO BTC ------------->
-                    <div class="card my-4 shadow">
+                    <div class="card my-4 shadow" id="hidden-satoshi" style="display: none;">
                         <h6 class="card-header head">CONVERT SATOSHI TO BITCOIN</h6>
                         <div class="card-body my-3">
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="input-group">
-                                        <input type="number" class="form-control" id="satoshi-value" oninput="calculateBTC()">
+                                        <input type="number" class="form-control" id="satoshi-value"
+                                            oninput="calculateBTC()">
                                         <div class="input-group-text">Satoshi</div>
                                     </div>
                                 </div>
@@ -136,16 +137,17 @@
                                 <div class="col-xs-4 col-sm-4 col-md-3">
                                     <select class="form-select fs-6" name="crypto-type" id="crypto-type"
                                         onchange="calculated$()">
-                                        <option value="btc">BTC (Bitcoin)</option>
-                                        <option value="eth">ETH (Ethereum)</option>
-                                        <option value="bnb">BNB (Binance Coin)</option>
-                                        <option value="doge">DOGE (Dogecoin)</option>
-                                        <option value="matic">MATIC (Polygon)</option>
+                                        <option value="btc">BTC</option>
+                                        <option value="eth">ETH</option>
+                                        <option value="bnb">BNB </option>
+                                        <option value="doge">DOGE</option>
+                                        <option value="matic">MATIC</option>
                                     </select>
                                 </div>
                                 <div class="col-xs-8 col-sm-8 col-md-3">
                                     <div class="input-group">
-                                        <input type="number" class="form-control" id="btc-value" oninput="calculated$()">
+                                        <input type="number" class="form-control" id="btc-value"
+                                            oninput="calculated$()">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-1">
@@ -159,9 +161,10 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-2 col-sm-4 col-md-2">
-                                    <select class="form-select fs-6" name="coin-type" id="coin-type" onchange="calculated$()">
-                                        <option value="dolar">USD (Dollar)</option>
-                                        <option value="euro">EUR (Euro)</option>
+                                    <select class="form-select fs-6" name="coin-type" id="coin-type"
+                                        onchange="calculated$()">
+                                        <option value="dolar">USD</option>
+                                        <option value="euro">EUR</option>
                                     </select>
                                 </div>
                             </div>
@@ -191,7 +194,7 @@
                             </tr>
                         </thead>
                         <tbody id="dollar-data">
-    
+
                         </tbody>
                     </table>
                     <table class="table tabla--euro table-dark my-4 shadow hidden">
@@ -206,7 +209,7 @@
                             </tr>
                         </thead>
                         <tbody id="euro-data">
-    
+
                         </tbody>
                     </table>
                 </div>
@@ -217,7 +220,8 @@
 
     <!---------------------------------------- CONVERSIONES  ------------------------------>
     <div class="container">
-        <div class="row"> <!--justify-content-md-center-->
+        <div class="row">
+            <!--justify-content-md-center-->
             <div class="col-md-5">
                 <div class="prom text-center">
                     <!--Start rollercoin.com code-->
@@ -320,5 +324,4 @@
     <!--Fin efecto escritura -->
 
     </body>
-
 </html>
