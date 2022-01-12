@@ -290,26 +290,61 @@ function blockAmount() {
       //bitcoin
       var blockreward = 30000;
       document.getElementById("block-reward").value = 30000;
+      document.getElementById("btc-value").value = "";
+      document.getElementById("coin-resultado").value = "";
       break;
     case 1:
       //Doge
       var blockreward = 20;
       document.getElementById("block-reward").value = 20;
+
+      document.getElementById("exp_reward").innerHTML = "NaN Satoshi";
+      document.getElementById("daily").innerHTML = "NaN Satoshi";
+      document.getElementById("weekly").innerHTML = "NaN Satoshi";
+      document.getElementById("monthly").innerHTML = "NaN Satoshi";
+
+      document.getElementById("btc-value").value = "";
+      document.getElementById("coin-resultado").value = "";
+      // document.getElementById("coin-resultado").value = document.getElementById("coin-resultado").defaultValue;
       break;
     case 2:
       //eth
       var blockreward = 0.005;
       document.getElementById("block-reward").value = 0.005;
+
+      document.getElementById("exp_reward").innerHTML = "NaN Satoshi";
+      document.getElementById("daily").innerHTML = "NaN Satoshi";
+      document.getElementById("weekly").innerHTML = "NaN Satoshi";
+      document.getElementById("monthly").innerHTML = "NaN Satoshi";
+
+      document.getElementById("btc-value").value = "";
+      document.getElementById("coin-resultado").value = "";
       break;
     case 3:
       //bnb
       var blockreward = 0.012;
       document.getElementById("block-reward").value = 0.012;
+
+      document.getElementById("exp_reward").innerHTML = "NaN Satoshi";
+      document.getElementById("daily").innerHTML = "NaN Satoshi";
+      document.getElementById("weekly").innerHTML = "NaN Satoshi";
+      document.getElementById("monthly").innerHTML = "NaN Satoshi";
+
+      document.getElementById("btc-value").value = "";
+      document.getElementById("coin-resultado").value = "";
       break;
     case 4:
       //matic
       var blockreward = 3;
       document.getElementById("block-reward").value = 3;
+
+      document.getElementById("exp_reward").innerHTML = "NaN Satoshi";
+      document.getElementById("daily").innerHTML = "NaN Satoshi";
+      document.getElementById("weekly").innerHTML = "NaN Satoshi";
+      document.getElementById("monthly").innerHTML = "NaN Satoshi";
+
+      document.getElementById("btc-value").value = "";
+      document.getElementById("coin-resultado").value = "";
       console.log("matic end");
       break;
     default:
@@ -317,6 +352,14 @@ function blockAmount() {
       console.log("rlt start");
       var blockreward = 30;
       document.getElementById("block-reward").value = 30;
+
+      document.getElementById("exp_reward").innerHTML = "NaN Satoshi";
+      document.getElementById("daily").innerHTML = "NaN Satoshi";
+      document.getElementById("weekly").innerHTML = "NaN Satoshi";
+      document.getElementById("monthly").innerHTML = "NaN Satoshi";
+      
+      document.getElementById("btc-value").value = "";
+      document.getElementById("coin-resultado").value = "";
       break;
   }
 }
