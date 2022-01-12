@@ -33,8 +33,16 @@
   text-align: center;
 }
 
+.titulo img {
+  width: 10%;
+}
+
 /* Parrafo */
-#text{
+.contenedor-text {
+  height: 2em;
+}
+
+#text {
   color: #3c33a2;
   font-size: 1.2rem;
 }
@@ -348,7 +356,7 @@ footer {
 
 /*Media-query*/
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .titulo {
     /* font-family: 'Shizuru', cursive; */
     /* font-family: "Fredoka One", cursive; */
@@ -362,7 +370,15 @@ footer {
     text-align: center;
   }
 
+  .titulo img {
+    width: 20%;
+  }
+
   /* Parrafo */
+  .contenedor-text {
+    height: 3em;
+  }
+
   #text{
     color: #3c33a2;
     font-size: 0.9rem;

@@ -23,16 +23,15 @@
     </header>
 
     <section class="container">
-        <h1 class="titulo">RollerChange</h1>
+        <h1 class="titulo"><img src="img/icon-roller.png" class="img-fluid" alt="">  RollerChange</h1>
 
-        <div class="container text-center mt-3 mb-5">
+        <div class="container text-center mt-3 mb-5 contenedor-text">
             <span id="text"></span>
         </div>
 
         <div class="row">
             <article class="col-md-4">
                 <div>
-
                     <!------------ INGRESA PODER DE RED ------------->
                     <div class="form-group row my-4">
                         <label class="mb-2">Enter Network Power For Desired Coin</label>
@@ -135,7 +134,7 @@
                         <h6 class="card-header head">CONVERT CRYPTOCURRENCY TO DOLLAR OR EURO</h6>
                         <div class="card-body my-3">
                             <div class="row">
-                                <div class="col-xs-4 col-sm-4 col-md-2">
+                                <div class="col-xs-4 col-sm-4 col-md-3">
                                     <select class="form-select fs-6" name="crypto-type" id="crypto-type"
                                         onchange="calculated$()">
                                         <option value="btc">BTC</option>
@@ -145,7 +144,7 @@
                                         <option value="matic">MATIC</option>
                                     </select>
                                 </div>
-                                <div class="col-xs-8 col-sm-8 col-md-4">
+                                <div class="col-xs-8 col-sm-8 col-md-3">
                                     <div class="input-group">
                                         <input type="number" class="form-control" id="btc-value"
                                             oninput="calculated$()">
@@ -287,7 +286,7 @@
             strings: ["RollYourNumbers isn't endorsed by Rollercoin and does not reflect the views or opinions of anyone officially involved in    producing and managing Rollercoin and their service(s)."],
             typeSpeed: 70,
             backSpeed: 30,
-            backDelay: 5000,
+            backDelay: 10000,
             fadeOut: true,
             loop: true
         });
