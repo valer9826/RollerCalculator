@@ -355,8 +355,7 @@ footer {
 }
 
 /*Media-query*/
-
-@media (max-width: 900px) {
+@media (max-width: 700px) {
   .titulo {
     /* font-family: 'Shizuru', cursive; */
     /* font-family: "Fredoka One", cursive; */
@@ -415,6 +414,11 @@ footer {
   .img__crypto {
     width: 25%;
     padding-right: 10px;
+  }
+
+  /*Flecha*/
+  .arrow-icon {
+    transform: rotate(-270deg);
   }
 
   /*Footer Social-media*/
