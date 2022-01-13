@@ -99,25 +99,25 @@
 
             <aside class="col-md-7">
                 <!---------------------------------------- CONVERSIONES  ------------------------------>
-                <div class="container">
+                <div class="container-convert">
                     <!------------ SATOSHI TO BTC ------------->
                     <div class="card my-4 shadow" id="hidden-satoshi">
                         <h6 class="card-header head">CONVERT SATOSHI TO BITCOIN</h6>
                         <div class="card-body my-3">
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-6">
+                                <div class="col-12 col-sm-12 col-md-6">
                                     <div class="input-group">
                                         <input type="number" class="form-control" id="satoshi-value"
                                             oninput="calculateBTC()">
                                         <div class="input-group-text">Satoshi</div>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-12 col-md-1">
+                                <div class="col-12 col-sm-12 col-md-1">
                                     <div class="text-center">
                                         <i class="fas fa-arrow-right arrow-icon"></i>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-12 col-sm-12 col-md-5">
                                     <div class="input-group recompensa">
 
                                         <input type="number" class="form-control" disabled id="btc-resultado">
@@ -135,7 +135,7 @@
                         <h6 class="card-header head">CONVERT CRYPTOCURRENCY TO DOLLAR OR EURO</h6>
                         <div class="card-body my-3">
                             <div class="row">
-                                <div class="col-xs-4 col-sm-4 col-md-3">
+                                <div class="col-5 col-sm-5 col-md-3">
                                     <select class="form-select fs-6" name="crypto-type" id="crypto-type"
                                         onchange="calculated$()">
                                         <option value="btc">BTC</option>
@@ -145,23 +145,23 @@
                                         <option value="matic">MATIC</option>
                                     </select>
                                 </div>
-                                <div class="col-xs-8 col-sm-8 col-md-3">
+                                <div class="col-7 col-sm-7 col-md-3">
                                     <div class="input-group">
                                         <input type="number" class="form-control" id="btc-value"
                                             oninput="calculated$()">
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-12 col-md-1">
+                                <div class="col-12 col-sm-12 col-md-1">
                                     <div class="text-center">
                                         <i class="fas fa-arrow-right arrow-icon"></i>
                                     </div>
                                 </div>
-                                <div class="col-xs-10 col-sm-8 col-md-3">
+                                <div class="col-8 col-sm-8 col-md-3">
                                     <div class="form-group recompensa">
                                         <input type="number" class="form-control" disabled id="coin-resultado">
                                     </div>
                                 </div>
-                                <div class="col-xs-2 col-sm-4 col-md-2">
+                                <div class="col-4 col-sm-4 col-md-2">
                                     <select class="form-select fs-6" name="coin-type" id="coin-type"
                                         onchange="calculated$()">
                                         <option value="dolar">USD</option>

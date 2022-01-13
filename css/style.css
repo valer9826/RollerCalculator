@@ -28,6 +28,7 @@
   color: #4e42d4;
   letter-spacing: 0.07em;
   line-height: 1.44em;
+  font-weight: bold;
   margin-top: 24px;
   /* margin-bottom: 5%; */
   text-align: center;
@@ -225,6 +226,14 @@ tr .name {
 }
 
 /*Tabla de conversión*/
+.container-convert{
+  width: 100%;
+  padding-right: var(--bs-gutter-x,.75rem);
+  padding-left: var(--bs-gutter-x,.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .card {
   width: 100%;
 }
@@ -414,6 +423,12 @@ footer {
   .img__crypto {
     width: 25%;
     padding-right: 10px;
+  }
+
+  .container-convert{
+    width: 100%;
+    padding-right: .5rem;
+    padding-left: .5rem;
   }
 
   /*Flecha*/
