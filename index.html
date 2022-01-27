@@ -31,196 +31,206 @@
         </div>
 
         <div class="row">
-            <article class="col-md-5">
-                <div>
-                    <!------------ INGRESA PODER DE RED ------------->
-                    <div class="form-group row my-4">
-                        <label class="mb-2">Enter Network Power For Desired Coin</label>
-                        <div class="col-7">
-                            <input type="number" class="form-control" step="any" id="network-power">
-                        </div>
-                        <div class="col-5">
-                            <select class="form-select" name="network-power-prefix" id="network-power-selector">
-                                <option value="ghs">GH/s</option>
-                                <option value="ths">TH/s</option>
-                                <option value="phs">PH/s</option>
-                                <option selected value="ehs">EH/s</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!------------ INGRESA PODER ------------->
-                    <div class="form-group row my-4">
-                        <label class="mb-2">Enter Your Desired Goal Power</label>
-                        <div class="col-7">
-                            <input type="number" class="form-control" name="goal-power-hash" id="goal-power">
-                        </div>
-                        <div class="col-5">
-                            <select class="form-select" name="goal-power-prefix" id="goal-power-selector">
-                                <option value="ghs">GH/s</option>
-                                <option selected value="ths">TH/s</option>
-                                <option value="phs">PH/s</option>
-                                <option value="ehs">EH/s</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!------------ INGRESA RECOMPENSA POR BLOQUE ------------->
-                    <div class="form-group row my-4">
-                        <label class="mb-2">Enter Block Reward For Desired Coin</label>
-                        <div class="col-7">
-                            <input type="number" class="form-control" name="block-reward" id="block-reward" step="any">
-                        </div>
-                        <div class="col-5">
-                            <select class="form-select" name="block-type" id="block-type" onchange="blockAmount()">
-                                <option value="btc">Bitcoin</option>
-                                <option value="doge">Doge</option>
-                                <option value="eth">Ethereum</option>
-                                <option value="bnb">Binance Coin</option>
-                                <option value="matic">MATIC</option>
-                                <option value="rlt">RollerToken</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <button class="btn-show mt-2" id="btn-calcular" onclick="calculateGoalPower()">Calculate</button>
-                </div>
-                <!------------ RESULTADOS DE CALCULADORA ------------->
-                <div class="my-5 p-3 card shadow recompensa">
-                    <p>Block Reward: <span id="exp_reward"></span></p>
-                    <p>Daily Reward: <span id="daily"></span></p>
-                    <p>Weekly Reward: <span id="weekly"></span></p>
-                    <p>Monthly Reward: <span id="monthly"></span></p>
-                    <!-- <p>Btc: <span id="btc-resultado"></span></p> -->
-                </div>
-                <!------------ END RESULTADOS DE CALCULADORA ------------->
-            </article>
-
-
-            <aside class="col-md-7">
-                <!---------------------------------------- CONVERSIONES  ------------------------------>
-                <div class="container-convert">
-                    <!------------ SATOSHI TO BTC ------------->
-                    <div class="card my-4 shadow" id="hidden-satoshi">
-                        <h6 class="card-header head">CONVERT SATOSHI TO BITCOIN</h6>
-                        <div class="card-body my-3">
-                            <div class="row">
-                                <div class="col-12 col-sm-12 col-md-6">
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" id="satoshi-value"
-                                            oninput="calculateBTC()">
-                                        <div class="input-group-text">Satoshi</div>
-                                    </div>
+            <div class="col-1">
+                <img src="img/roller.gif" width="100" height="1000" alt="">
+            </div>
+            <div class="col-10">
+                <div class="row">
+                    <article class="col-md-5">
+                        <div>
+                            <!------------ INGRESA PODER DE RED ------------->
+                            <div class="form-group row my-4">
+                                <label class="mb-2">Enter Network Power For Desired Coin</label>
+                                <div class="col-7">
+                                    <input type="number" class="form-control" step="any" id="network-power">
                                 </div>
-                                <div class="col-12 col-sm-12 col-md-1">
-                                    <div class="text-center">
-                                        <i class="fas fa-arrow-right arrow-icon"></i>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-5">
-                                    <div class="input-group recompensa">
-
-                                        <input type="number" class="form-control" disabled id="btc-resultado">
-                                        <div class="input-group-text font-weight-bold">BTC</div>
-                                    </div>
+                                <div class="col-5">
+                                    <select class="form-select" name="network-power-prefix" id="network-power-selector">
+                                        <option value="ghs">GH/s</option>
+                                        <option value="ths">TH/s</option>
+                                        <option value="phs">PH/s</option>
+                                        <option selected value="ehs">EH/s</option>
+                                    </select>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <!------------ END SATOSHI TO BTC ------------->
-
-                    <!------------ CRYPTO TO USD/EUR ------------->
-                    <div class="card my-4 shadow" id="hidden-crypto">
-                        <h6 class="card-header head">CONVERT CRYPTOCURRENCY TO DOLLAR OR EURO</h6>
-                        <div class="card-body my-3">
-                            <div class="row">
-                                <div class="col-5 col-sm-5 col-md-3">
-                                    <select class="form-select fs-6" name="crypto-type" id="crypto-type"
-                                        onchange="calculated$()">
-                                        <option value="btc">BTC</option>
-                                        <option value="eth">ETH</option>
-                                        <option value="bnb">BNB </option>
-                                        <option value="doge">DOGE</option>
+        
+                            <!------------ INGRESA PODER ------------->
+                            <div class="form-group row my-4">
+                                <label class="mb-2">Enter Your Desired Goal Power</label>
+                                <div class="col-7">
+                                    <input type="number" class="form-control" name="goal-power-hash" id="goal-power">
+                                </div>
+                                <div class="col-5">
+                                    <select class="form-select" name="goal-power-prefix" id="goal-power-selector">
+                                        <option value="ghs">GH/s</option>
+                                        <option selected value="ths">TH/s</option>
+                                        <option value="phs">PH/s</option>
+                                        <option value="ehs">EH/s</option>
+                                    </select>
+                                </div>
+                            </div>
+        
+                            <!------------ INGRESA RECOMPENSA POR BLOQUE ------------->
+                            <div class="form-group row my-4">
+                                <label class="mb-2">Enter Block Reward For Desired Coin</label>
+                                <div class="col-7">
+                                    <input type="number" class="form-control" name="block-reward" id="block-reward" step="any">
+                                </div>
+                                <div class="col-5">
+                                    <select class="form-select" name="block-type" id="block-type" onchange="blockAmount()">
+                                        <option value="btc">Bitcoin</option>
+                                        <option value="doge">Doge</option>
+                                        <option value="eth">Ethereum</option>
+                                        <option value="bnb">Binance Coin</option>
                                         <option value="matic">MATIC</option>
-                                    </select>
-                                </div>
-                                <div class="col-7 col-sm-7 col-md-3">
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" id="btc-value"
-                                            oninput="calculated$()">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-1">
-                                    <div class="text-center">
-                                        <i class="fas fa-arrow-right arrow-icon"></i>
-                                    </div>
-                                </div>
-                                <div class="col-8 col-sm-8 col-md-3">
-                                    <div class="form-group recompensa">
-                                        <input type="number" class="form-control" disabled id="coin-resultado">
-                                    </div>
-                                </div>
-                                <div class="col-4 col-sm-4 col-md-2">
-                                    <select class="form-select fs-6" name="coin-type" id="coin-type"
-                                        onchange="calculated$()">
-                                        <option value="dolar">USD</option>
-                                        <option value="euro">EUR</option>
+                                        <option value="rlt">RollerToken</option>
                                     </select>
                                 </div>
                             </div>
+        
+                            <button class="btn-show mt-2" id="btn-calcular" onclick="calculateGoalPower()">Calculate</button>
                         </div>
-                    </div>
-                    <!------------ END CRYPTO TO USD/EUR ------------->
+                        <!------------ RESULTADOS DE CALCULADORA ------------->
+                        <div class="my-5 p-3 card shadow recompensa">
+                            <p>Block Reward: <span id="exp_reward"></span></p>
+                            <p>Daily Reward: <span id="daily"></span></p>
+                            <p>Weekly Reward: <span id="weekly"></span></p>
+                            <p>Monthly Reward: <span id="monthly"></span></p>
+                            <!-- <p>Btc: <span id="btc-resultado"></span></p> -->
+                        </div>
+                        <!------------ END RESULTADOS DE CALCULADORA ------------->
+                    </article>
+        
+        
+                    <aside class="col-md-7">
+                        <!---------------------------------------- CONVERSIONES  ------------------------------>
+                        <div class="container-convert">
+                            <!------------ SATOSHI TO BTC ------------->
+                            <div class="card my-4 shadow" id="hidden-satoshi">
+                                <h6 class="card-header head">CONVERT SATOSHI TO BITCOIN</h6>
+                                <div class="card-body my-3">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 col-md-6">
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" id="satoshi-value"
+                                                    oninput="calculateBTC()">
+                                                <div class="input-group-text">Satoshi</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-1">
+                                            <div class="text-center">
+                                                <i class="fas fa-arrow-right arrow-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-5">
+                                            <div class="input-group recompensa">
+        
+                                                <input type="number" class="form-control" disabled id="btc-resultado">
+                                                <div class="input-group-text font-weight-bold">BTC</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!------------ END SATOSHI TO BTC ------------->
+        
+                            <!------------ CRYPTO TO USD/EUR ------------->
+                            <div class="card my-4 shadow" id="hidden-crypto">
+                                <h6 class="card-header head">CONVERT CRYPTOCURRENCY TO DOLLAR OR EURO</h6>
+                                <div class="card-body my-3">
+                                    <div class="row">
+                                        <div class="col-5 col-sm-5 col-md-3">
+                                            <select class="form-select fs-6" name="crypto-type" id="crypto-type"
+                                                onchange="calculated$()">
+                                                <option value="btc">BTC</option>
+                                                <option value="eth">ETH</option>
+                                                <option value="bnb">BNB </option>
+                                                <option value="doge">DOGE</option>
+                                                <option value="matic">MATIC</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-7 col-sm-7 col-md-3">
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" id="btc-value"
+                                                    oninput="calculated$()">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-1">
+                                            <div class="text-center">
+                                                <i class="fas fa-arrow-right arrow-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-8 col-sm-8 col-md-3">
+                                            <div class="form-group recompensa">
+                                                <input type="number" class="form-control" disabled id="coin-resultado">
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-sm-4 col-md-2">
+                                            <select class="form-select fs-6" name="coin-type" id="coin-type"
+                                                onchange="calculated$()">
+                                                <option value="dolar">USD</option>
+                                                <option value="euro">EUR</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!------------ END CRYPTO TO USD/EUR ------------->
+                        </div>
+                        <!---------------------------------------- END CONVERSIONES  ------------------------------>
+        
+                        <!------------ BOTONES DE CONSUMO API ------------->
+                        <p class="text-center" style="margin-top: 1rem;"><span class="text-btn-mostrar">Click on the button to
+                                see coin prices!</span>
+                        </p>
+        
+                        <div class="text-center">
+                            <button id="dollar" class="btn-show mx-2">USD</button>
+                            <button id="euro" class="btn-show mx-2">EUR</button>
+                        </div>
+                        <!------------FIN BOTONES DE CONSUMO API ------------->
+        
+                        <!------------ TABLAS USD/EUR ------------->
+                        <div>
+                            <table class="table tabla--dollar table-dark my-4 shadow hidden">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th class="rank">#</th>
+                                        <th class="name">Nombre</th>
+                                        <!-- <th class="Simbolo">Simbolo</th> -->
+                                        <th class="image">Precio</th>
+                                        <th class="price_change">24h (%)</th>
+                                        <!-- <th class="price">Icono</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody id="dollar-data">
+        
+                                </tbody>
+                            </table>
+                            <table class="table tabla--euro table-dark my-4 shadow hidden">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th class="rank">#</th>
+                                        <th class="name">Nombre</th>
+                                        <!-- <th class="Simbolo">Simbolo</th> -->
+                                        <th class="image">Precio</th>
+                                        <th class="price_change">24h (%)</th>
+                                        <!-- <th class="price">Icono</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody id="euro-data">
+        
+                                </tbody>
+                            </table>
+                        </div>
+                        <!------------END TABLAS USD/EUR ------------->
+                    </aside>
                 </div>
-                <!---------------------------------------- END CONVERSIONES  ------------------------------>
-
-                <!------------ BOTONES DE CONSUMO API ------------->
-                <p class="text-center" style="margin-top: 1rem;"><span class="text-btn-mostrar">Click on the button to
-                        see coin prices!</span>
-                </p>
-
-                <div class="text-center">
-                    <button id="dollar" class="btn-show mx-2">USD</button>
-                    <button id="euro" class="btn-show mx-2">EUR</button>
-                </div>
-                <!------------FIN BOTONES DE CONSUMO API ------------->
-
-                <!------------ TABLAS USD/EUR ------------->
-                <div>
-                    <table class="table tabla--dollar table-dark my-4 shadow hidden">
-                        <thead>
-                            <tr class="text-center">
-                                <th class="rank">#</th>
-                                <th class="name">Nombre</th>
-                                <!-- <th class="Simbolo">Simbolo</th> -->
-                                <th class="image">Precio</th>
-                                <th class="price_change">24h (%)</th>
-                                <!-- <th class="price">Icono</th> -->
-                            </tr>
-                        </thead>
-                        <tbody id="dollar-data">
-
-                        </tbody>
-                    </table>
-                    <table class="table tabla--euro table-dark my-4 shadow hidden">
-                        <thead>
-                            <tr class="text-center">
-                                <th class="rank">#</th>
-                                <th class="name">Nombre</th>
-                                <!-- <th class="Simbolo">Simbolo</th> -->
-                                <th class="image">Precio</th>
-                                <th class="price_change">24h (%)</th>
-                                <!-- <th class="price">Icono</th> -->
-                            </tr>
-                        </thead>
-                        <tbody id="euro-data">
-
-                        </tbody>
-                    </table>
-                </div>
-                <!------------END TABLAS USD/EUR ------------->
-            </aside>
+            </div>
+            <div class="col-1">
+                <img src="img/roller.gif" width="100" height="1000" alt="">
+            </div>
         </div>
     </section>
 
@@ -252,6 +262,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+
+    <!-- publicidad -->
+    <script type="text/javascript">
+        atOptions = {
+            'key' : 'a5afe084cf805278100ef6178919ca28',
+            'format' : 'iframe',
+            'height' : 60,
+            'width' : 468,
+            'params' : {}
+        };
+        document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivedisplaycontent.com/a5afe084cf805278100ef6178919ca28/invoke.js"></scr' + 'ipt>');
+    </script>
+
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Calculator.js -->
