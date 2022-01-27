@@ -59,8 +59,17 @@
 
         <div class="row">
             <!-- PUBLICIDAD -->
-            <div class="col-0 col-md-1 banner">
-                <img src="img/roller.gif" width="100" height="1000" alt="">
+            <div class="col-1">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key': '6ae236b6b9d639c0c17b114a36aaef72',
+                        'format': 'iframe',
+                        'height': 300,
+                        'width': 160,
+                        'params': {}
+                    };
+                    document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivedisplaycontent.com/6ae236b6b9d639c0c17b114a36aaef72/invoke.js"></scr' + 'ipt>');
+                </script>
             </div>
             <!-- END PUBLICIDAD -->
 
@@ -83,7 +92,7 @@
                                     </select>
                                 </div>
                             </div>
-        
+
                             <!------------ INGRESA PODER ------------->
                             <div class="form-group row my-4">
                                 <label class="mb-2">Enter Your Desired Goal Power</label>
@@ -99,15 +108,17 @@
                                     </select>
                                 </div>
                             </div>
-        
+
                             <!------------ INGRESA RECOMPENSA POR BLOQUE ------------->
                             <div class="form-group row my-4">
                                 <label class="mb-2">Enter Block Reward For Desired Coin</label>
                                 <div class="col-7">
-                                    <input type="number" class="form-control" name="block-reward" id="block-reward" step="any">
+                                    <input type="number" class="form-control" name="block-reward" id="block-reward"
+                                        step="any">
                                 </div>
                                 <div class="col-5">
-                                    <select class="form-select" name="block-type" id="block-type" onchange="blockAmount()">
+                                    <select class="form-select" name="block-type" id="block-type"
+                                        onchange="blockAmount()">
                                         <option value="btc">Bitcoin</option>
                                         <option value="doge">Doge</option>
                                         <option value="eth">Ethereum</option>
@@ -117,8 +128,9 @@
                                     </select>
                                 </div>
                             </div>
-        
-                            <button class="btn-show mt-2" id="btn-calcular" onclick="calculateGoalPower()">Calculate</button>
+
+                            <button class="btn-show mt-2" id="btn-calcular"
+                                onclick="calculateGoalPower()">Calculate</button>
                         </div>
                         <!------------ RESULTADOS DE CALCULADORA ------------->
                         <div class="my-5 p-3 card shadow recompensa">
@@ -130,8 +142,8 @@
                         </div>
                         <!------------ END RESULTADOS DE CALCULADORA ------------->
                     </article>
-        
-        
+
+
                     <aside class="col-md-7">
                         <!---------------------------------------- CONVERSIONES  ------------------------------>
                         <div class="container-convert">
@@ -154,7 +166,7 @@
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-5">
                                             <div class="input-group recompensa">
-        
+
                                                 <input type="number" class="form-control" disabled id="btc-resultado">
                                                 <div class="input-group-text font-weight-bold">BTC</div>
                                             </div>
@@ -162,9 +174,9 @@
                                     </div>
                                 </div>
                             </div>
-        
+
                             <!------------ END SATOSHI TO BTC ------------->
-        
+
                             <!------------ CRYPTO TO USD/EUR ------------->
                             <div class="card my-4 shadow" id="hidden-crypto">
                                 <h6 class="card-header head">CONVERT CRYPTOCURRENCY TO DOLLAR OR EURO</h6>
@@ -209,18 +221,19 @@
                             <!------------ END CRYPTO TO USD/EUR ------------->
                         </div>
                         <!---------------------------------------- END CONVERSIONES  ------------------------------>
-        
+
                         <!------------ BOTONES DE CONSUMO API ------------->
-                        <p class="text-center" style="margin-top: 1rem;"><span class="text-btn-mostrar">Click on the button to
+                        <p class="text-center" style="margin-top: 1rem;"><span class="text-btn-mostrar">Click on the
+                                button to
                                 see coin prices!</span>
                         </p>
-        
+
                         <div class="text-center">
                             <button id="dollar" class="btn-show mx-2">USD</button>
                             <button id="euro" class="btn-show mx-2">EUR</button>
                         </div>
                         <!------------FIN BOTONES DE CONSUMO API ------------->
-        
+
                         <!------------ TABLAS USD/EUR ------------->
                         <div>
                             <table class="table tabla--dollar table-dark my-4 shadow hidden">
@@ -235,7 +248,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="dollar-data">
-        
+
                                 </tbody>
                             </table>
                             <table class="table tabla--euro table-dark my-4 shadow hidden">
@@ -250,7 +263,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="euro-data">
-        
+
                                 </tbody>
                             </table>
                         </div>
@@ -259,10 +272,23 @@
                 </div>
             </div>
             <!-- PUBLICIDAD -->
-            <div class="col-0 col-md-1 banner">
-                <img src="img/roller.gif" width="100" height="1000" alt="">
-            </div>
-            <!-- END PUBLICIDAD -->
+            <<<<<<< HEAD <div class="col-1">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key': '6ae236b6b9d639c0c17b114a36aaef72',
+                        'format': 'iframe',
+                        'height': 300,
+                        'width': 160,
+                        'params': {}
+                    };
+                    document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivedisplaycontent.com/6ae236b6b9d639c0c17b114a36aaef72/invoke.js"></scr' + 'ipt>');
+                </script>
+                =======
+                <div class="col-0 col-md-1 banner">
+                    <img src="img/roller.gif" width="100" height="1000" alt="">
+                    >>>>>>> ff6ca4c76aa2966b7595cc3d166c5abb52274de8
+                </div>
+                <!-- END PUBLICIDAD -->
         </div>
 
     </section>
