@@ -56,7 +56,7 @@ selectBlock.addEventListener("change", (e) => {
   if (selectBlock.value === "btc") {
     document.getElementById("hidden-satoshi").style.display = "block";
     document.getElementById("hidden-crypto").style.display = "block";
-  } else if(selectBlock.value === "rlt") {
+  } else if (selectBlock.value === "rlt") {
     document.getElementById("hidden-satoshi").style.display = "none";
     document.getElementById("hidden-crypto").style.display = "none";
   } else {
@@ -76,7 +76,7 @@ selectCrypto.addEventListener("change", (e) => {
 let xhReq = new XMLHttpRequest();
 xhReq.open(
   "GET",
-  "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum%2C%20dogecoin%2C%20matic-network%2C%20binancecoin&order=market_cap_desc&per_page=100&page=1&sparkline=false",
+  "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum%2C%20binancecoin%2C%20dogecoin%2C%20matic-network%2C%20solana&order=market_cap_desc&per_page=100&page=1&sparkline=false",
   false
 );
 xhReq.send(null);
@@ -96,7 +96,7 @@ btnDollar.addEventListener("click", function () {
 let euroReq = new XMLHttpRequest();
 euroReq.open(
   "GET",
-  "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=bitcoin%2C%20ethereum%2C%20dogecoin%2C%20matic-network%2C%20binancecoin&order=market_cap_desc&per_page=100&page=1&sparkline=false",
+  "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=bitcoin%2C%20ethereum%2C%20binancecoin%2C%20dogecoin%2C%20matic-network%2C%20solana&order=market_cap_desc&per_page=100&page=1&sparkline=false",
   false
 );
 euroReq.send(null);
@@ -118,7 +118,7 @@ function resetBoard(data, moneda, monedaSimbolo) {
   $list.find(".crytocurrency").remove();
   const dataMoneda = [];
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 6; i++) {
     dataMoneda.push({
       name: data[i].name,
       symbol: data[i].symbol,
@@ -197,7 +197,7 @@ function calculateBTC() {
 }
 
 function currentPriceDollar(data) {
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 6; i++) {
     precioDollarMonedas.push({
       name: data[i].name,
       current_price: data[i].current_price,
@@ -207,7 +207,7 @@ function currentPriceDollar(data) {
 }
 
 function currenPriceEuro(data) {
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 6; i++) {
     precioEuroMonedas.push({
       name: data[i].name,
       current_price: data[i].current_price,
@@ -225,12 +225,14 @@ function calculated$() {
   let bnb_dolar = crypto * precioDollarMonedas[2].current_price;
   let doge_dolar = crypto * precioDollarMonedas[3].current_price;
   let matic_dolar = crypto * precioDollarMonedas[4].current_price;
+  let solana_dolar = crypto * precioDollarMonedas[5].current_price;
 
   let btc_euro = crypto * precioEuroMonedas[0].current_price;
   let eth_euro = crypto * precioEuroMonedas[1].current_price;
   let bnb_euro = crypto * precioEuroMonedas[2].current_price;
   let doge_euro = crypto * precioEuroMonedas[3].current_price;
   let matic_euro = crypto * precioEuroMonedas[4].current_price;
+  let solana_euro = crypto * precioEuroMonedas[5].current_price;
 
   switch (document.getElementById("crypto-type").selectedIndex) {
     case 0:
@@ -278,7 +280,7 @@ function calculated$() {
           break;
       }
       break;
-    default:
+    case 4:
       switch (document.getElementById("coin-type").selectedIndex) {
         case 0:
           document.getElementById("coin-resultado").value =
@@ -287,6 +289,18 @@ function calculated$() {
         default:
           document.getElementById("coin-resultado").value =
             matic_euro.toFixed(2);
+          break;
+      }
+      break;
+    default:
+      switch (document.getElementById("coin-type").selectedIndex) {
+        case 0:
+          document.getElementById("coin-resultado").value =
+            solana_dolar.toFixed(2);
+          break;
+        default:
+          document.getElementById("coin-resultado").value =
+            solana_euro.toFixed(2);
           break;
       }
       break;
@@ -305,86 +319,64 @@ function blockAmount() {
       //bitcoin
       var blockreward = 30000;
       document.getElementById("block-reward").value = 30000;
-
-      document.getElementById("exp_reward").innerHTML = "NaN Satoshi";
-      document.getElementById("daily").innerHTML = "NaN Satoshi";
-      document.getElementById("weekly").innerHTML = "NaN Satoshi";
-      document.getElementById("monthly").innerHTML = "NaN Satoshi";
-
-      document.getElementById("satoshi-value").value = "";
-      document.getElementById("btc-resultado").value = "";
-
-      document.getElementById("btc-value").value = "";
-      document.getElementById("coin-resultado").value = "";
       break;
     case 1:
       //Doge
       var blockreward = 20;
       document.getElementById("block-reward").value = 20;
-
-      document.getElementById("exp_reward").innerHTML = "NaN Doge";
-      document.getElementById("daily").innerHTML = "NaN Doge";
-      document.getElementById("weekly").innerHTML = "NaN Doge";
-      document.getElementById("monthly").innerHTML = "NaN Doge";
-
-      document.getElementById("btc-value").value = "";
-      document.getElementById("coin-resultado").value = "";
-      // document.getElementById("coin-resultado").value = document.getElementById("coin-resultado").defaultValue;
       break;
     case 2:
       //eth
       var blockreward = 0.005;
       document.getElementById("block-reward").value = 0.005;
-
-      document.getElementById("exp_reward").innerHTML = "NaN Ethereum";
-      document.getElementById("daily").innerHTML = "NaN Ethereum";
-      document.getElementById("weekly").innerHTML = "NaN Ethereum";
-      document.getElementById("monthly").innerHTML = "NaN Ethereum";
-
-      document.getElementById("btc-value").value = "";
-      document.getElementById("coin-resultado").value = "";
       break;
     case 3:
       //bnb
       var blockreward = 0.012;
       document.getElementById("block-reward").value = 0.012;
-
-      document.getElementById("exp_reward").innerHTML = "NaN BNB";
-      document.getElementById("daily").innerHTML = "NaN BNB";
-      document.getElementById("weekly").innerHTML = "NaN BNB";
-      document.getElementById("monthly").innerHTML = "NaN BNB";
-
-      document.getElementById("btc-value").value = "";
-      document.getElementById("coin-resultado").value = "";
       break;
     case 4:
       //matic
       var blockreward = 3;
       document.getElementById("block-reward").value = 3;
-
-      document.getElementById("exp_reward").innerHTML = "NaN MATIC";
-      document.getElementById("daily").innerHTML = "NaN MATIC";
-      document.getElementById("weekly").innerHTML = "NaN MATIC";
-      document.getElementById("monthly").innerHTML = "NaN MATIC";
-
-      document.getElementById("btc-value").value = "";
-      document.getElementById("coin-resultado").value = "";
       console.log("matic end");
+      break;
+    case 5:
+      //SOL
+      var blockreward = 0.5;
+      document.getElementById("block-reward").value = 0.05;
+      console.log("sol end");
       break;
     default:
       //RLT
       console.log("rlt start");
       var blockreward = 30;
       document.getElementById("block-reward").value = 30;
-
-      document.getElementById("exp_reward").innerHTML = "NaN Rollertoken";
-      document.getElementById("daily").innerHTML = "NaN Rollertoken";
-      document.getElementById("weekly").innerHTML = "NaN Rollertoken";
-      document.getElementById("monthly").innerHTML = "NaN Rollertoken";
-
-      document.getElementById("btc-value").value = "";
-      document.getElementById("coin-resultado").value = "";
       break;
+  }
+}
+
+function showHashpowerHelp() {
+  var x = document.querySelector(
+    "body > div.row.no-gutters.hashinput > div > div:nth-child(1) > img"
+  );
+  if (x.classList.contains("hide")) {
+    x.classList.remove("hide");
+  } else {
+    x.classList.add("hide");
+  }
+}
+
+function supportMeToggle() {
+  var x = document.querySelector("body > div.supportMe");
+  if (x.classList.contains("hidden")) {
+    x.classList.add("animate__animate", "animate__fadeInLeft");
+    x.classList.remove("hidden");
+    console.log("revealed SupportMe");
+    // x.classList.add("animate__animated", "animate__bounceOutLeft");
+  } else {
+    x.classList.add("hidden");
+    console.log("Hide SupportMe");
   }
 }
 
@@ -439,32 +431,18 @@ function calculateGoalPower() {
 
   console.log("exp. reward " + exp_reward.toFixed(4));
 
-  /* const btcBlockTimer = 600;
-    const dogeBlockTimer = 600;
-    console.log(dogeBlockTimer + "seconds doge")
-    const ethBlockTimer = 600; */
-
   //All timers are now the same 2021-04-19
   const BlockTimer = 600;
   const secFullDay = 86400;
 
-  const dailyBtcBlocks = secFullDay / BlockTimer;
-  const dailyDogeBlocks = secFullDay / BlockTimer;
-  const dailyEthBlocks = secFullDay / BlockTimer;
-  const dailyBnbBlocks = secFullDay / BlockTimer;
-  const dailyMaticBlocks = secFullDay / BlockTimer;
-  console.log(dailyBtcBlocks + ", " + dailyDogeBlocks + ", " + dailyEthBlocks);
-
-  console.log("DailyBTC " + dailyBtcBlocks);
-  console.log("DailyDOGE " + dailyDogeBlocks);
-  console.log("DailyETH " + dailyEthBlocks);
+  const dailyBlocks = secFullDay / BlockTimer;
   console.log(exp_reward);
 
   switch (document.getElementById("block-type").selectedIndex) {
     case 0:
       document.getElementById("exp_reward").innerHTML =
         exp_reward.toFixed(4) + " Satoshi";
-      var btcResult = (exp_reward * dailyBtcBlocks).toFixed(4);
+      var btcResult = (exp_reward * dailyBlocks).toFixed(4);
       document.getElementById("daily").innerHTML = btcResult + " Satoshi";
       document.getElementById("weekly").innerHTML =
         (btcResult * 7).toFixed(4) + " Satoshi";
@@ -473,19 +451,19 @@ function calculateGoalPower() {
       break;
     case 1:
       document.getElementById("exp_reward").innerHTML =
-        exp_reward.toFixed(4) + " Doge";
-      var dogeResult = (exp_reward * dailyDogeBlocks).toFixed(4);
-      document.getElementById("daily").innerHTML = dogeResult + " Doge";
+        exp_reward.toFixed(4) + " DOGE";
+      var dogeResult = (exp_reward * dailyBlocks).toFixed(6);
+      document.getElementById("daily").innerHTML = dogeResult + " DOGE";
       document.getElementById("weekly").innerHTML =
-        (dogeResult * 7).toFixed(4) + " Doge";
+        (dogeResult * 7).toFixed(4) + " DOGE";
       document.getElementById("monthly").innerHTML =
-        (dogeResult * 30).toFixed(4) + " Doge";
+        (dogeResult * 30).toFixed(4) + " DOGE";
       break;
     case 2:
       document.getElementById("exp_reward").innerHTML =
         exp_reward.toFixed(8) + " Ethereum";
-      var ethResult = (exp_reward * dailyEthBlocks).toFixed(8);
-      document.getElementById("daily").innerHTML = ethResult + " Etherium";
+      var ethResult = (exp_reward * dailyBlocks).toFixed(8);
+      document.getElementById("daily").innerHTML = ethResult + " Ethereum";
       document.getElementById("weekly").innerHTML =
         (ethResult * 7).toFixed(8) + " Ethereum";
       document.getElementById("monthly").innerHTML =
@@ -494,7 +472,7 @@ function calculateGoalPower() {
     case 3:
       document.getElementById("exp_reward").innerHTML =
         exp_reward.toFixed(8) + " BNB";
-      var bnbResult = (exp_reward * dailyBnbBlocks).toFixed(8);
+      var bnbResult = (exp_reward * dailyBlocks).toFixed(8);
       document.getElementById("daily").innerHTML = bnbResult + " BNB";
       document.getElementById("weekly").innerHTML =
         (bnbResult * 7).toFixed(8) + " BNB";
@@ -504,17 +482,27 @@ function calculateGoalPower() {
     case 4:
       document.getElementById("exp_reward").innerHTML =
         exp_reward.toFixed(8) + " MATIC";
-      var maticResult = (exp_reward * dailyMaticBlocks).toFixed(8);
+      var maticResult = (exp_reward * dailyBlocks).toFixed(8);
       document.getElementById("daily").innerHTML = maticResult + " MATIC";
       document.getElementById("weekly").innerHTML =
         (maticResult * 7).toFixed(8) + " MATIC";
       document.getElementById("monthly").innerHTML =
         (maticResult * 30).toFixed(8) + " MATIC";
       break;
+    case 5:
+      document.getElementById("exp_reward").innerHTML =
+        exp_reward.toFixed(8) + " SOL";
+      var solResult = (exp_reward * dailyBlocks).toFixed(8);
+      document.getElementById("daily").innerHTML = solResult + " SOL";
+      document.getElementById("weekly").innerHTML =
+        (solResult * 7).toFixed(8) + " SOL";
+      document.getElementById("monthly").innerHTML =
+        (solResult * 30).toFixed(8) + " SOL";
+      break;
     default:
       document.getElementById("exp_reward").innerHTML =
         exp_reward.toFixed(8) + " Rollertoken";
-      var rltResult = (exp_reward * dailyEthBlocks).toFixed(4);
+      var rltResult = (exp_reward * dailyBlocks).toFixed(4);
       document.getElementById("daily").innerHTML = rltResult + " Rollertoken";
       document.getElementById("weekly").innerHTML =
         (rltResult * 7).toFixed(4) + " Rollertoken";
